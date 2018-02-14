@@ -9,7 +9,7 @@ gem 'bootstrap-sass'
 
 gem 'jquery-rails'
 
-# gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.0.0'
 
 gem 'devise'
 

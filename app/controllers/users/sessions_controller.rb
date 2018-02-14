@@ -3,7 +3,7 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   skip_before_action :verify_authenticity_token, only: [:index, :new, :create]
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :destroy]
 
   # GET /resource/sign_in
   def new
