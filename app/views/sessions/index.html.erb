@@ -19,23 +19,23 @@
     <ul class="nav navbar-nav navbar-right">
     	<% if user_signed_in? %>
       	<li><%= link_to root_path do %>
-      		<span class="glyphicon glyphicon-time"></span>Add Time Slot</li>
+      		<span class="glyphicon glyphicon-time"></span> Add Time Slot</li>
       	<% end %>
 
       	<li><%= link_to root_path do %>
-      		<span class="glyphicon glyphicon-search"></span>Search Time Slots</li>
+      		<span class="glyphicon glyphicon-search"></span> Search Time Slots</li>
       	<% end %>
 
       	<li><%= link_to destroy_user_session_path, method: :delete do %>
-      		<span class="glyphicon glyphicon-log-out"></span>Sign Out</li>
+      		<span class="glyphicon glyphicon-log-out"></span> Sign Out</li>
       	<% end %>
       <% else %>
 	      <li><%= link_to new_user_registration_path do %> 
-	      	<span class="glyphicon glyphicon-user"></span>Sign Up</li>
+	      	<span class="glyphicon glyphicon-user"></span> Sign Up</li>
 	      <% end %>
 	      	
 	      <li><%= link_to new_user_session_path do %>
-	      	<span class="glyphicon glyphicon-log-in"></span>Login</li>
+	      	<span class="glyphicon glyphicon-log-in"></span> Login</li>
 	      <% end %>
       <% end %>
     </ul>
