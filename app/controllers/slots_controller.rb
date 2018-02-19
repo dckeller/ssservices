@@ -1,4 +1,5 @@
 class SlotsController < ApplicationController
+	skip_before_action :require_login
 
 	def index
 		@slots = Slot.all.order("created_at DESC")
@@ -48,5 +49,6 @@ class SlotsController < ApplicationController
 	private
 
 	def slot_params
-		params.require(:slot).permit(:date, :city, :contact, :start_time, :end_time)      
+		params.require(:slot).permit(:date, :city, :contact, :start_time, :end_time, :state)
+	end       
 end

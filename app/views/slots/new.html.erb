@@ -1,0 +1,26 @@
+<h1>New Slots Form</h1>
+
+<%= form_for @slot do |f| %>
+
+	<%= f.label :date %>
+	<%= f.date_field :date %>
+
+	<%= f.label :city %>
+	<%= f.string :city %>
+
+	<%= f.hidden_field :state %>
+	<%= f.hidden_field_tag, :state, "Utah" %>
+
+	<%= f.label :contact %>
+	<%= f.select_tag :contact, options_for_select(contact_options) %>
+
+	<%= f.label :start_time %>
+	<%= f.date_field :start_time %>
+
+	<%= f.label :end_time %>
+	<%= f.date_field :end_time %>
+
+	<%= f.submit, "Add Slot" %>
+
+<% end %> 
+
