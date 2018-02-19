@@ -1,1 +1,13 @@
 <h1>Slots Index</h1>
+
+<% @slots.each do |time_slot| %>
+	<tr>
+		<td><%= User.find(time_slot.user_id).bus_name %></td>
+		<td><%= time_slot.date %></td>
+		<td><%= time_slot.contact %></td>
+		<td><%= time_slot.start_time %></td>
+		<td><%= time_slot.end_time %></td>
+		<td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
+		<td><%= link_to 'Delete', slots_path(time_slot), method: :destroy %></td>
+	</tr>
+<% end %>	
