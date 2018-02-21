@@ -3,25 +3,27 @@
 	<% @skills.each do |all| %>
 	<% if current_user.id === all.user_id %>
 	<h4>International Code Council (ICC)</h4>
-		<%= all.skill_1 %>
-		<%= all.skill_2 %>
-		<%= all.skill_3 %>
-		<%= all.skill_4 %>
-		<%= all.skill_5 %>
-		<%= all.skill_6 %>
-		<%= all.skill_7 %>
+		<%= all.skill_1 %><br>
+		<%= all.skill_2 %><br>
+		<%= all.skill_3 %><br>
+		<%= all.skill_4 %><br>
+		<%= all.skill_5 %><br>
+		<%= all.skill_6 %><br>
+		<%= all.skill_7 %><br>
 	<h4>American Welding Society (AWS)</h4>
-		<%= all.skill_8 %>
-		<%= all.skill_9 %>
+		<%= all.skill_8 %><br>
+		<%= all.skill_9 %><br>
 	<h4>American Society of Non-Destructive Testing (ASNT)</h4>
-		<%= all.skill_10 %>
-		<%= all.skill_11 %>
-		<%= all.skill_12 %>
+		<%= all.skill_10 %><br>
+		<%= all.skill_11 %><br>
+		<%= all.skill_12 %><br>
 	<h4>American Concrete Institute (ACI)</h4>
-		<%= all.skill_13 %>
+		<%= all.skill_13 %><br>
 	<h4>Structure Scan GPR</h4>
-		<%= all.skill_14 %>
+		<%= all.skill_14 %><br>
 	<h4>Seismic Hanger & Anchorage</h4>
-		<%= all.skill_15 %>
+		<%= all.skill_15 %><br>
+<%= link_to "Edit Skills", edit_skill_path(all.id) %>
 	<% end %>
 <% end %>
+

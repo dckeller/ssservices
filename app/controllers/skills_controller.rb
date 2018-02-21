@@ -25,14 +25,14 @@ class SkillsController < ApplicationController
 	end
 
 	def edit
-		@skill = Skill.find(params[:id])
+		@skill = Skill.find_by(params[:user_id])
 	end
 
 	def update
-		@skill = Skill.find(params[:id])
-		@user = User.find(params[:user_id])
+		@skill = Skill.find_by(params[:user_id])
+
 		if @skill.update(skill_params)
-			direct_to skills_path
+			redirect_to skills_path
 		else
 			render "edit"
 		end
