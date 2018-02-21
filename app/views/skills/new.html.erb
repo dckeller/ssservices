@@ -1,0 +1,13 @@
+<h1>Create Skills</h1>
+
+<h4>Check all the skills that apply:</h4>
+<%= form_for @skill do |f| %>
+
+	<%= f.select :certification, options_for_select(skill_options), multiple: :true %>
+
+	<%= f.submit "Add Skills" %>
+
+<% end %>
+
+
+
