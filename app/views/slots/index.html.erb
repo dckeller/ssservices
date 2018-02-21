@@ -1,8 +1,14 @@
 <h1>Slots Index</h1>
 
+<table>
+	<tr>
+		<td> Company Name </td>
+		<td> Date Available </td>
+		<td> Preferred Contact Method </td>
+		<td> Time Available </td>
+	</tr>
 <% @slots.each do |time_slot| %>
 	<tr>
-		<td><%= time_slot.user_id.bus_name %></td>
 		<td><%= User.find(time_slot.user_id).bus_name %></td>
 		<td><%= time_slot.date %></td>
 		<td><%= time_slot.contact %></td>
@@ -11,4 +17,5 @@
 		<td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
 		<td><%= link_to 'Delete', slots_path(time_slot), method: :destroy %></td>
 	</tr>
-<% end %>	
+<% end %>
+</table>	
