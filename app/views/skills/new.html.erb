@@ -1,13 +1,58 @@
-<h1>Create Skills</h1>
+<h1>Select All Skills</h1>
 
-<h4>Check all the skills that apply:</h4>
 <%= form_for @skill do |f| %>
 
-	<%= f.select :certification, options_for_select(skill_options), multiple: :true %>
+<h4>International Code Council (ICC)</h4>
+	<%=f.check_box(:skill_1, {checked: false}) %>
+	<%=f.label :skill_1, "Structural Soils Special Inspector" %><br>
 
-	<%= f.submit "Add Skills" %>
+	<%=f.check_box(:skill_2, {checked: false}) %>
+	<%=f.label :skill_2, "Reinforced Concrete" %><br>
+
+	<%=f.check_box(:skill_3, {checked: false}) %>
+	<%=f.label :skill_3, "Post-tensioned Concrete" %><br>
+
+	<%=f.check_box(:skill_4, {checked: false}) %>
+	<%=f.label :skill_4, "Structural Masonry" %><br>
+
+	<%=f.check_box(:skill_5, {checked: false}) %>
+	<%=f.label :skill_5, "Structural Steel & Bolting" %><br>
+
+	<%=f.check_box(:skill_6, {checked: false}) %>
+	<%=f.label :skill_6, "Structural Steel & Welding" %><br>
+
+	<%=f.check_box(:skill_7, {checked: false}) %>
+	<%=f.label :skill_7, "Spray Applied Fire Resistive Material & Fire Proofing" %><br>
+
+<h4>American Welding Society (AWS)</h4>
+	<%=f.check_box(:skill_8, {checked: false}) %>
+	<%=f.label :skill_8, "D1.1 Certified Welding Inspector" %><br>
+
+	<%=f.check_box(:skill_9, {checked: false}) %>
+	<%=f.label :skill_9, "D1.8 Certified Welding Inspector" %><br>
+
+<h4>American Society of Non-Destructive Testing (ASNT)</h4>
+	<%=f.check_box(:skill_10, {checked: false}) %>
+	<%=f.label :skill_10, "Visual Testing Level II" %><br>
+
+	<%=f.check_box(:skill_11, {checked: false}) %>
+	<%=f.label :skill_11, "Magnetic Particle Testing Level II" %><br>
+
+	<%=f.check_box(:skill_12, {checked: false}) %>
+	<%=f.label :skill_12, "Dye Penetrant Testing Level II" %><br>
+
+<h4>American Concrete Institute (ACI)</h4>
+	<%=f.check_box(:skill_13, {checked: false}) %>
+	<%=f.label :skill_13, "Field Testing Technician Level I" %><br>
+
+<h4>Structure Scan GPR</h4>
+	<%=f.check_box(:skill_14, {checked: false}) %>
+	<%=f.label :skill_14, "GSSI Structure Scan Mini" %><br>
+
+<h4>Seismic Hanger & Anchorage</h4>
+	<%=f.check_box(:skill_15, {checked: false}) %>
+	<%=f.label :skill_15, "Load Testing" %><br>			
+
+<%= f.submit "Add Skills" %>
 
 <% end %>
-
-
-
