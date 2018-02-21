@@ -10,27 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221060936) do
+ActiveRecord::Schema.define(version: 20180221174723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "skills", force: :cascade do |t|
-    t.boolean "skill_1"
-    t.boolean "skill_2"
-    t.boolean "skill_3"
-    t.boolean "skill_4"
-    t.boolean "skill_5"
-    t.boolean "skill_6"
-    t.boolean "skill_7"
-    t.boolean "skill_8"
-    t.boolean "skill_9"
-    t.boolean "skill_10"
-    t.boolean "skill_11"
-    t.boolean "skill_12"
-    t.boolean "skill_13"
-    t.boolean "skill_14"
-    t.boolean "skill_15"
+    t.string "skill_1"
+    t.string "skill_2"
+    t.string "skill_3"
+    t.string "skill_4"
+    t.string "skill_5"
+    t.string "skill_6"
+    t.string "skill_7"
+    t.string "skill_8"
+    t.string "skill_9"
+    t.string "skill_10"
+    t.string "skill_11"
+    t.string "skill_12"
+    t.string "skill_13"
+    t.string "skill_14"
+    t.string "skill_15"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
