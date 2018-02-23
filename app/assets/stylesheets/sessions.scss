@@ -2,28 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body, html {
-    height: 100%;
-}
-
-.bg { 
-    background-image: url("lightbg.jpg");
-    height: 100%; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 400%;
-  color: white;
-}
-
 .info {
 	margin-left: 100px;
 	margin-right: 100px;
+  background: white;
+}
+
+.icons {
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card-deck {
+  display: flex;
+}
+
+.card {
+  margin: 0 auto;
+}
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+        
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
 }
