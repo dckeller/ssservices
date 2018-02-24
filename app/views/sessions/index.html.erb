@@ -15,7 +15,7 @@
           </div>
     <div class="modal-body"> -->
 
-<div id="myGallery" class="carousel slide carousel-fade" data-ride="carousel" >
+<div id="myGallery" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000" >
 
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -85,16 +85,16 @@
     <!-- </div> --><!--end modal-content-->
   <!-- </div> --><!--end modal-dialoge-->
 <!-- </div> --><!--end myModal-->
-
 <div class="icons">
-	<div class="card-deck">
+    <h1>We Are Your</h1>
+  <div class="card-deck">
 	  <div class="card">
 	    <%= image_tag("special.png",
 	                  alt: "Card image cap",
 	                  class: "card-img-top",
 	                  size: "300") %>
 	    <div class="card-block">
-	      <h4 class="card-title">Special</h4>
+	      <h3 class="card-title">Special</h3>
 	    </div>
 	  </div>
 	  <div class="card">
@@ -103,7 +103,7 @@
 	                  class: "card-img-top",
 	                  size: "300") %>
 	    <div class="card-block">
-	      <h4 class="card-title">Inspection</h4>
+	      <h3 class="card-title">Inspection</h3>
 	    </div>
 	  </div>
 	  <div class="card">
@@ -112,7 +112,7 @@
 	                  class: "card-img-top",
 	                  size: '300') %>
 	    <div class="card-block">
-	      <h4 class="card-title">Connection</h4>
+	      <h3 class="card-title">Connection</h3>
 	    </div>
 	  </div>
   </div>
@@ -123,6 +123,33 @@
 		<h4>Here at Structural Support Systems we stive for perfection while encoporating new tools and technologies to ensure accurate reporting, timemanagement, and certified stuff.</h4><br>
 	<h1>Why A Time Management Site</h1>
 		<h4>As a sole-propriator your time is important and we know that. This website was designed to both help show of your certifications, while helping you connect to the right people with the right skill sets.  You'll be able to post time your available for project work, as well as search for work based on your time available and certifications that you hold.</h4><br>
+  
+  <h1 id="profile-slots">See Who's Available</h1>
+    <table>
+      <tr>
+        <td> Logo </td>
+        <td> Company Name </td>
+        <td> Date Available </td>
+        <td> Preferred Contact Method </td>
+        <td> Time Available </td>
+      </tr>
+    <% @slots.each do |time_slot| %>
+      <tr>
+        <td><%= image_tag(User.find(time_slot.user_id).avatar, size: "100") %></td>
+        <td><%= User.find(time_slot.user_id).bus_name %></td>
+        <td><%= time_slot.date.strftime("%a, %D") %></td>
+        <td><%= time_slot.contact %></td>
+        <td><%= time_slot.start_time.strftime("%I:%M%p") %></td>
+        <td><%= time_slot.end_time.strftime("%I:%M%p") %></td>
+        <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
+        <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
+      </tr>
+  <% end %>
+</table>
+
+<h1 id="profile-contact">Contact Us</h1>
+<div class="contact">
+  <%= render "contact_form" %>
 </div>
 </body>
 </html>

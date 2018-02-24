@@ -14,7 +14,7 @@ class SlotsController < ApplicationController
 		@slot.user_id = current_user.id
 
 		if @slot.save
-			redirect_to slots_path
+			redirect_to profile_path(current_user.id)
 		else
 			render "new"
 		end
@@ -32,18 +32,17 @@ class SlotsController < ApplicationController
 		@slot = Slot.find(params[:id])
 		@user = User.find(params[:user_id])
 		if @slot.update(slot_params)
-			direct_to slots_path
+			direct_to profile_path(current_user.id, anchor: "#profile-slots")
 		else
 			render "edit"
 		end
 	end
 
 	def destroy
-		@slot = Slot.find(params[:id])
-		@user = User.find(params[:user_id])
+		@slot = Slot.find_by(params[:user_id])
 
 		@slot.destroy
-		redirect_to slots_path
+		redirect_to profile_path(current_user.id)
 	end
 
 	private

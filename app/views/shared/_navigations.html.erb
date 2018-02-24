@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
     	<%= link_to image_tag("logo1.png", alt: "logo", size: "60"), '/', class: 'navbar-brand', id: 'logo' %>
-      <a class="navbar-brand" href="#">Structural Support Services | Time Manager</a>
+      <a class="navbar-brand" href="/">Structural Support Services | Time Manager</a>
     </div>
     <!-- <ul class="nav navbar-nav"> -->
       <!-- <li><a href="#">Home</a></li> -->
@@ -11,8 +11,11 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
     	<% if user_signed_in? %>
-        <li><%= link_to skills_path do %>
-          <span class="glyphicon glyphicon-list-alt"></span> My Skills</li>
+        <li><%= link_to profile_path(current_user.id) do %>
+          <span class="glyphicon glyphicon-user"></span> My Profile</li>
+        <% end %>
+        <li><%= link_to edit_skill_path(current_user.id) do %>
+          <span class="glyphicon glyphicon-list-alt"></span> Edit Certifications</li>
         <% end %>
       	<li><%= link_to new_slot_path do %>
       		<span class="glyphicon glyphicon-time"></span> Add Time Slot</li>

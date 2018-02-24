@@ -8,16 +8,16 @@
 	<%= f.label :city %>
 	<%= f.text_field :city %><br>
 
-	<%= hidden_field(:state, "Utah") %>
+	<%= f.hidden_field :state, value: "Utah" %>
 
 	<%= f.label :contact %>
 	<%= f.select :contact, options_for_select(contact_options) %><br>
 
 	<%= f.label :start_time %>
-	<%= f.date_field :start_time %>
+	<%= f.time_field :start_time %>
 
 	<%= f.label :end_time %>
-	<%= f.date_field :end_time %><br>
+	<%= f.time_field :end_time %><br>
 
 	<%= f.submit "Add Slot" %><br>
 

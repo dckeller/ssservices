@@ -2,24 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.info {
-	margin-left: 100px;
-	margin-right: 100px;
-  background: white;
-}
-
-.icons {
-  text-align: center;
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
-.card-deck {
-  display: flex;
-}
-
-.card {
-  margin: 0 auto;
+h3 {
+    font-family: helvetica;
+    color: orange;
 }
 
 .carousel-fade {
@@ -52,4 +37,30 @@
     .carousel-control {
         z-index: 2;
     }
+}
+
+.icons {
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card-deck {
+  display: flex;
+}
+
+.card {
+  margin: 0 auto;
+}
+
+.info {
+    margin-left: 100px;
+    margin-right: 100px;
+    background: white;
+}
+
+.card-img-top:hover {
+    border: 3px solid orange;
+    border-radius: 25%;
+    border-spacing: 15px;
 }

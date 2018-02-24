@@ -1,0 +1,10 @@
+<%#= form_for @contact, url: contacts_path, class: 'contact_form', remote: true do |f| %>
+  <%#= f.text_field :name, required: true, placeholder: "Tell me your name", class: 'contact_text' %><br>
+
+  <%#= f.email_field :email, required: true, placeholder: "Tell me your email" %><br>
+
+  <%#= f.text_area :message, as: :text, placeholder: "Tell me something" %><br>
+
+  <%#= f.hidden_field :nickname, hint: 'leave this field blank' %>
+
+  <%#= f.submit 'Send Message', class: 'button' %>

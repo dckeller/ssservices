@@ -1,4 +1,5 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Account Update Page</h2>
+<h4>Would you like to make any changes to your account?</h4>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -8,17 +9,12 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :password %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
@@ -27,17 +23,43 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.label :bus_name, "Bussiness Name" %><br />
+    <%= f.text_field :bus_name, autofocus: true, autocomplete: "bus_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bus_location, "Business Location" %><br />
+    <%= f.text_field :bus_location, autofocus: true, autocomplete: "bus_location" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bus_type, "Business Type" %><br />
+    <%= f.text_field :bus_type, autofocus: true, autocomplete: "bus_type" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name , "First Name" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :avatar, "Attach Business Logo" %><br />
+    <%= f.file_field :avatar, as: :file %>
+  </div>
+
+  <div class="field">
+    <%= f.label :background, "Attach Profile Background" %><br />
+    <%= f.file_field :background, as: :file %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update Account" %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

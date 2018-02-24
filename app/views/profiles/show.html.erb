@@ -1,0 +1,49 @@
+<h1>Welcome, <%= @user.first_name %></h1>
+<h4>Bussiness Name: <%= @user.bus_name %> </h4>
+<h4>Bussiness Type: <%= @user.bus_type %> </h4>
+<h4> <%= link_to "Add Certifications", new_skill_path %> | <%= link_to "Edit My Profile", edit_user_registration_path %></h4>
+
+<%= image_tag @user.avatar %><br>
+<%= image_tag @user.background %>
+
+<% @skill.each do |all| %>
+		<h3>My Certifications</h3>
+			<ul id="skills_list">
+				<li><%= all.skill_1  %></li>
+				<li><%= all.skill_2  %></li>
+				<li><%= all.skill_3  %></li>
+				<li><%= all.skill_4  %></li>
+				<li><%= all.skill_5  %></li>
+				<li><%= all.skill_6  %></li>
+				<li><%= all.skill_7  %></li>
+				<li><%= all.skill_8  %></li>
+				<li><%= all.skill_9  %></li>
+				<li><%= all.skill_10 %></li>
+				<li><%= all.skill_11 %></li>
+				<li><%= all.skill_12 %></li>
+				<li><%= all.skill_13 %></li>
+				<li><%= all.skill_14 %></li>
+			</ul>
+		<%= link_to "Edit Skills", edit_skill_path(all.user_id) %>
+<% end %>
+
+<h3>My Time Slots</h3>
+<table>
+	<tr>
+		<td> Company Name </td>
+		<td> Date Available </td>
+		<td> Preferred Contact Method </td>
+		<td> Time Available </td>
+	</tr>
+<% @slot.each do |time_slot| %>
+	<tr>
+		<td><%= User.find(time_slot.user_id).bus_name %></td>
+		<td><%= time_slot.date.strftime("%a, %D") %></td>
+		<td><%= time_slot.contact %></td>
+		<td><%= time_slot.start_time.strftime("%I:%M%p") %></td>
+		<td><%= time_slot.end_time.strftime("%I:%M%p") %></td>
+		<td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
+		<td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
+	</tr>
+<% end %>
+</table>

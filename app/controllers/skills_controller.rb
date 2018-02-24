@@ -14,7 +14,7 @@ class SkillsController < ApplicationController
 		@skill.user_id = current_user.id
 
 		if @skill.save
-			redirect_to skills_path
+			redirect_to profile_path(current_user.id)
 		else
 			render "new"
 		end
@@ -32,7 +32,7 @@ class SkillsController < ApplicationController
 		@skill = Skill.find_by(params[:user_id])
 
 		if @skill.update(skill_params)
-			redirect_to skills_path
+			redirect_to profile_path(current_user.id)
 		else
 			render "edit"
 		end
