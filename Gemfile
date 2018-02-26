@@ -15,6 +15,8 @@ gem 'devise'
 
 gem "paperclip", "~> 5.2.1"
 
+gem 'mail_form'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
