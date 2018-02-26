@@ -17,9 +17,9 @@ gem 'bootstrap', '~> 4.0.0'
 
 gem 'devise'
 
-gem "paperclip", "~> 5.2.1"
+gem "paperclip"
 
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '< 2.0'
 
 gem 'mail_form'
 
