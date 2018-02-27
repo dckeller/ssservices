@@ -7,11 +7,4 @@ class ProfilesController < ApplicationController
 		@skill = Skill.where(user_id: current_user.id)
 		@slot = Slot.where(user_id: current_user.id)
 	end
-
-	private
-
-	def skill_params
-		params.require(:profile).permit(:description)
-	end 
-
 end

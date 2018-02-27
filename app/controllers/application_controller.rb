@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     profile_path(current_user.id)
   end
 
+  def sign_out_and_redirect(resource)
+    root_path
+  end 
+
   def configure_permited_parameters
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :bus_name, :bus_location, :bus_type, :first_name, :last_name, :avatar, :background, :description, :facebook, :linkedin, :website])
     
