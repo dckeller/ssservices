@@ -119,8 +119,6 @@
 </div>	
 
 <div class="info">
-	<h1>Who We Are</h1>
-		<h4>Here at Structural Support Systems we stive for perfection while encoporating new tools and technologies to ensure accurate reporting, timemanagement, and certified stuff.</h4><br>
 	<h1>Why A Time Management Site</h1>
 		<h4>As a sole-propriator your time is important and we know that. This website was designed to both help show of your certifications, while helping you connect to the right people with the right skill sets.  You'll be able to post time your available for project work, as well as search for work based on your time available and certifications that you hold.</h4><br>
   
@@ -128,21 +126,21 @@
     <table>
       <tr>
         <td> Logo </td>
+        <td> City </td>
         <td> Company Name </td>
         <td> Date Available </td>
-        <td> Preferred Contact Method </td>
         <td> Time Available </td>
       </tr>
     <% @slots.each do |time_slot| %>
       <tr>
         <td><%= image_tag(User.find(time_slot.user_id).avatar, size: "100") %></td>
+        <td><%= time_slot.city %>s</td>
         <td><%= User.find(time_slot.user_id).bus_name %></td>
         <td><%= time_slot.date.strftime("%a, %D") %></td>
-        <td><%= time_slot.contact %></td>
-        <td><%= time_slot.start_time.strftime("%I:%M%p") %></td>
-        <td><%= time_slot.end_time.strftime("%I:%M%p") %></td>
+        <td><%= time_slot.start_time.strftime("%I:%M%P") %> - <%= time_slot.end_time.strftime("%I:%M%P") %></td>
         <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
         <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
+        <td><%= link_to 'Profile', profile_path(time_slot.user_id) %></td>
       </tr>
   <% end %>
 </table>

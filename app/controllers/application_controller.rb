@@ -7,11 +7,16 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-      profile_path(current_user.id)
-   end
+    profile_path(current_user.id)
+  end
+
+  def after_update_path_for(resource)
+    profile_path(current_user.id)
+  end
 
   def configure_permited_parameters
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :bus_name, :bus_location, :bus_type, :first_name, :last_name, :avatar, :background])
-	end 
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :bus_name, :bus_location, :bus_type, :first_name, :last_name, :avatar, :background])	
+  end 
 
 end

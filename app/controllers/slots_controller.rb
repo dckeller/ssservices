@@ -25,14 +25,13 @@ class SlotsController < ApplicationController
 	end
 
 	def edit
-		@slot = Slot.find(params[:id])
+		@slot = Slot.find_by(params[:user_id])
 	end
 
 	def update
-		@slot = Slot.find(params[:id])
-		@user = User.find(params[:user_id])
+		@slot = Slot.find_by(params[:user_id])
 		if @slot.update(slot_params)
-			direct_to profile_path(current_user.id, anchor: "#profile-slots")
+			redirect_to profile_path(current_user.id)
 		else
 			render "edit"
 		end
