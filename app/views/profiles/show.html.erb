@@ -1,5 +1,4 @@
-<h2>Welcome, <%= @user.first_name %>
-<%= link_to edit_user_registration_path do %>
+<h2>Welcome, <%= @user.first_name %><%= link_to edit_user_registration_path do %>
   <span class="glyphicon glyphicon-pencil"></span> Edit Profile</h2>
 <% end %>
 <h4>Bussiness Name: <%= @user.bus_name %> </h4>
@@ -18,26 +17,31 @@
 <%= image_tag @user.avatar %><br>
 <%= image_tag @user.background %>
 
+<% if @skill.blank? %>
+  <h3><%= link_to "+ Add Certifications", new_skill_path %></h3>
+<% else %>
+
 <% @skill.each do |all| %>
-	<h3>My Certifications <%= link_to edit_skill_path(all.user_id) do %>
+	<h3><%= link_to edit_skill_path(all.user_id) do %>
     <span class="glyphicon glyphicon-pencil"></span> Edit Certifications</h3>
   <% end %>
-    <ul id="skills_list">
-      <li><%= all.skill_1  %></li>
-      <li><%= all.skill_2  %></li>
-      <li><%= all.skill_3  %></li>
-      <li><%= all.skill_4  %></li>
-      <li><%= all.skill_5  %></li>
-      <li><%= all.skill_6  %></li>
-      <li><%= all.skill_7  %></li>
-      <li><%= all.skill_8  %></li>
-      <li><%= all.skill_9  %></li>
-      <li><%= all.skill_10 %></li>
-      <li><%= all.skill_11 %></li>
-      <li><%= all.skill_12 %></li>
-      <li><%= all.skill_13 %></li>
-      <li><%= all.skill_14 %></li>
-    </ul>
+      <ul id="skills_list">
+        <li><%= all.skill_1  %></li>
+        <li><%= all.skill_2  %></li>
+        <li><%= all.skill_3  %></li>
+        <li><%= all.skill_4  %></li>
+        <li><%= all.skill_5  %></li>
+        <li><%= all.skill_6  %></li>
+        <li><%= all.skill_7  %></li>
+        <li><%= all.skill_8  %></li>
+        <li><%= all.skill_9  %></li>
+        <li><%= all.skill_10 %></li>
+        <li><%= all.skill_11 %></li>
+        <li><%= all.skill_12 %></li>
+        <li><%= all.skill_13 %></li>
+        <li><%= all.skill_14 %></li>
+      </ul>
+  <% end %>
 <% end %>
 
 <h3>My Time Slots</h3>
