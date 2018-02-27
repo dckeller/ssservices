@@ -17,7 +17,7 @@ gem 'bootstrap', '~> 4.0.0'
 
 gem 'devise'
 
-gem "paperclip"
+gem "paperclip", '4.3.6'
 
 gem 'aws-sdk', '< 2.0'
 
