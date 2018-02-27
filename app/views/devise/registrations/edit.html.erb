@@ -62,9 +62,27 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :facebook, "Link Your Facebook Page" %><br />
+    <%= f.text_field :facebook, autofocus: true, autocomplete: "facebook" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkedin, "Link Your Linkedin Page" %><br />
+    <%= f.text_field :linkedin, autofocus: true, autocomplete: "linkedin" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :website, "Link Your Business Page" %><br />
+    <%= f.text_field :website, autofocus: true, autocomplete: "website" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "Tell a little about yourself" %><br />
+    <%= f.text_area :description, autofocus: true, size: "60x10", autocomplete: "description" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update Account" %>
   </div>
 <% end %>
-
-<%= link_to "Back", :back %>

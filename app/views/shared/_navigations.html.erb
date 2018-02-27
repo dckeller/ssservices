@@ -21,20 +21,13 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
     	<% if user_signed_in? %>
+        <li><%= link_to profile_path(2) do %> 
+          <span class="glyphicon glyphicon-user"></span> About Us</li>
+        <% end %>
         <li><%= link_to profile_path(current_user.id) do %>
           <span class="glyphicon glyphicon-user"></span> My Profile</li>
         <% end %>
         
-        <% if @skill.blank? %>
-          <li><%= link_to new_skill_path do %>
-            <span class="glyphicon glyphicon-list-alt"></span> Add Certifications</li>
-          <% end %>
-        <% else %>
-          <li><%= link_to edit_skill_path(current_user.id) do %>
-            <span class="glyphicon glyphicon-list-alt"></span> Edit Certifications</li>
-          <% end %>
-        <% end %>
-      	
         <li><%= link_to new_slot_path do %>
       		<span class="glyphicon glyphicon-time"></span> Add Time Slot</li>
       	<% end %>
@@ -46,6 +39,10 @@
 	      <li><%= link_to new_user_registration_path do %> 
 	      	<span class="glyphicon glyphicon-user"></span> Sign Up</li>
 	      <% end %>
+
+        <li><%= link_to profile_path(2) do %> 
+          <span class="glyphicon glyphicon-user"></span> About Us</li>
+        <% end %>
 	      	
 	      <li><%= link_to new_user_session_path do %>
 	      	<span class="glyphicon glyphicon-log-in"></span> Login</li>
