@@ -18,11 +18,11 @@
 <%= image_tag @user.background %>
 
 <% if @skill.blank? %>
-  <h3><%= link_to "+ Add Certifications", new_skill_path %></h3>
+<h3>My Certifications <%= link_to "+ Add Certifications", new_skill_path %></h3>
 <% else %>
 
 <% @skill.each do |all| %>
-	<h3><%= link_to edit_skill_path(all.user_id) do %>
+<h3>My Certifications <%= link_to edit_skill_path(all.user_id) do %>
     <span class="glyphicon glyphicon-pencil"></span> Edit Certifications</h3>
   <% end %>
       <ul id="skills_list">

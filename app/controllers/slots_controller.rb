@@ -41,7 +41,7 @@ class SlotsController < ApplicationController
 		@slot = Slot.find_by(params[:user_id])
 
 		@slot.destroy
-		redirect_to :back
+		redirect_back fallback_location: root_path
 	end
 
 	private

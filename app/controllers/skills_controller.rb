@@ -21,7 +21,7 @@ class SkillsController < ApplicationController
 	end
 
 	def show
-		@skill = Skill.find(params[:id])
+		@skill = Skill.find_by(params[:user_id])
 	end
 
 	def edit
