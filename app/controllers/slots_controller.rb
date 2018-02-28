@@ -41,7 +41,7 @@ class SlotsController < ApplicationController
 		@slot = Slot.find_by(params[:user_id])
 
 		@slot.destroy
-		redirect_to profile_path(current_user.id)
+		redirect_to :back
 	end
 
 	private

@@ -138,9 +138,9 @@
         <td><%= time_slot.city %></td>
         <td><%= User.find(time_slot.user_id).bus_name %></td>
         <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
+        <td><%= link_to 'View Certifications', profile_path(time_slot.user_id) %></td>
         <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
       <% if user_signed_in? && current_user.id === time_slot.user_id %>
-        <td><%= link_to 'Certifications', profile_path(time_slot.user_id) %></td>
         <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
         <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
       </tr>
