@@ -17,9 +17,5 @@
 	<%= f.label :end_time %>
 	<%= f.time_field :end_time %><br>
 
-	<% if @slot.blank? %>
-		<%= f.submit "Add Slot" %><br>
-	<% else %>
-		<%= f.submit "Edit Slot" %><br>
-	<% end %>
-<% end %> 
+	<%= f.submit "Add Slot" %><br>
+<% end %>

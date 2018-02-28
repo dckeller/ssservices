@@ -139,7 +139,7 @@
         <td><%= time_slot.date.strftime("%a, %D") %></td>
         <td><%= time_slot.start_time.strftime("%I:%M%P") %> - <%= time_slot.end_time.strftime("%I:%M%P") %></td>
       <% if user_signed_in? && current_user.id === time_slot.user_id %>
-        <td><%= link_to 'Profile', profile_path(time_slot.user_id) %></td>
+         <td><%= link_to 'Profile', profile_path(time_slot.user_id) %></td>
         <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
         <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
       <% end %>

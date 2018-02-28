@@ -1,0 +1,51 @@
+<h4>Bussiness Name: <%= @user.bus_name %> </h4>
+<h4>Bussiness Type: <%= @user.bus_type %> </h4>
+<h4>Home City: <%= @user.bus_location %> </h4>
+<h4>Description: <%= @user.description %> </h4>
+
+<%= link_to image_tag("fb.png", size: "100"), @user.facebook, target: :_blank %>
+<%= link_to image_tag("ld.png", size: "100"), @user.linkedin, target: :_blank %>
+<%= link_to image_tag("ws.png", size: "100"), @user.website, target: :_blank %><br> 
+
+<%= image_tag @user.avatar %><br>
+<%= image_tag @user.background %>
+
+<% @skill.each do |all| %>
+      <ul id="skills_list">
+        <li><%= all.skill_1  %></li>
+        <li><%= all.skill_2  %></li>
+        <li><%= all.skill_3  %></li>
+        <li><%= all.skill_4  %></li>
+        <li><%= all.skill_5  %></li>
+        <li><%= all.skill_6  %></li>
+        <li><%= all.skill_7  %></li>
+        <li><%= all.skill_8  %></li>
+        <li><%= all.skill_9  %></li>
+        <li><%= all.skill_10 %></li>
+        <li><%= all.skill_11 %></li>
+        <li><%= all.skill_12 %></li>
+        <li><%= all.skill_13 %></li>
+        <li><%= all.skill_14 %></li>
+      </ul>
+<% end %>
+
+<h3>My Time Slots</h3>
+<table>
+      <tr>
+        <td> Logo </td>
+        <td> Company Name </td>
+        <td> Date Available </td>
+        <td> Preferred Contact Method </td>
+        <td> Time Available </td>
+      </tr>
+    <% @slot.each do |time_slot| %>
+      <tr>
+        <td><%= image_tag(User.find(time_slot.user_id).avatar, size: "100") %></td>
+        <td><%= User.find(time_slot.user_id).bus_name %></td>
+        <td><%= time_slot.date.strftime("%a, %D") %></td>
+        <td><%= time_slot.contact %></td>
+        <td><%= time_slot.start_time.strftime("%I:%M%p") %></td>
+        <td><%= time_slot.end_time.strftime("%I:%M%p") %></td>
+      </tr>
+  <% end %>
+</table>
