@@ -122,8 +122,8 @@
 	<h1>Why A Time Management Site</h1>
 		<h4>As a sole-propriator your time is important and we know that. This website was designed to both help show of your certifications, while helping you connect to the right people with the right skill sets.  You'll be able to post time your available for project work, as well as search for work based on your time available and certifications that you hold.</h4><br>
   
-  <h1 id="profile-slots">See Who's Available</h1>
-    <table>
+<h1 id="profile-slots">See Who's Available</h1>
+<table>
       <tr>
         <td> Logo </td>
         <td> City </td>
@@ -131,19 +131,21 @@
         <td> Date Available </td>
         <td> Time Available </td>
       </tr>
+   <% if @slots.any? %>   
     <% @slots.each do |time_slot| %>
       <tr>
         <td><%= image_tag(User.find(time_slot.user_id).avatar, size: "100") %></td>
-        <td><%= time_slot.city %>s</td>
+        <td><%= time_slot.city %></td>
         <td><%= User.find(time_slot.user_id).bus_name %></td>
-        <td><%= time_slot.date.strftime("%a, %D") %></td>
-        <td><%= time_slot.start_time.strftime("%I:%M%P") %> - <%= time_slot.end_time.strftime("%I:%M%P") %></td>
+        <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
+        <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
       <% if user_signed_in? && current_user.id === time_slot.user_id %>
-         <td><%= link_to 'Profile', profile_path(time_slot.user_id) %></td>
+        <td><%= link_to 'Certifications', profile_path(time_slot.user_id) %></td>
         <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
         <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
-      <% end %>
       </tr>
+      <% end %>
+    <% end %>
   <% end %>
 </table>
 
