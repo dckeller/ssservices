@@ -19,10 +19,10 @@
       <!-- <li><a href="#">Page 1</a></li> -->
       <!-- <li><a href="#">Page 2</a></li> -->
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to profiles_path do %> 
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><%#= link_to profiles_path do %> 
           <span class="glyphicon glyphicon-list-alt"></span> About Us</li>
-        <% end %>
+        <%# end %> -->
         
       <% if user_signed_in? %>
         <li><%= link_to profile_path(current_user.id) do %>
