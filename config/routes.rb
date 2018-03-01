@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
-	resources :slots do 
-		resources :dialogs
+	resources :conversations do 
+		resources :messages
 	end 
 
 	resources :skills
