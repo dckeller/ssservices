@@ -1,0 +1,4 @@
+<%= form_for @message, url: slot_chat_messages_path(@slot, @chat), method: :post do |f| %>
+	<%= f.text_field :body %>
+	<%= f.submit "Send" %>
+<% end %>

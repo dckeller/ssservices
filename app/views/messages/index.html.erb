@@ -1,1 +1,22 @@
-<h1>Chat</h1>
+<h1> Start Chat with:</h1>
+<h4><%= image_tag(User.find(@slot.id).avatar, size: "100") %><%= User.find(@slot.id).bus_name %></h4>
+<h4>Job Location: <%= @slot.city %></h4>
+<h4>Date: <%= @slot.date.try(:strftime, "%a, %D") %></h4>
+<h4>Time: <%= @slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= @slot.end_time.try(:strftime, "%-l:%M%P") %></h4>
+
+<% @messages.each do |all_messages| %>
+
+	<% if (current_user.id === all_messages.slot_creator_id) || (current_user.id === all_messages.worker_id)  %>
+		<span><%= all_messages.username %> :</span>
+		<p style="color:blue;">"<%= all_messages.body %>"</p>
+		<span><%= all_messages.created_at%></span>
+
+	<% else %>
+		<span><%= all_messages.username %> :</span>
+		<p style="color:green;">"<%= all_messages.body %>"</p>
+		<span><%= all_messages.created_at%></span>
+
+	<% end %>
+<% end %>
+
+<%= render 'new_message_form' %>
