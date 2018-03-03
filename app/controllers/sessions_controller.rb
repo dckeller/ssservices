@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 	def index
 		@slots = Slot.all.order("created_at DESC")
 		@contact = Contact.new
+		@chat = Chat.new
 	end
 	 
 end
