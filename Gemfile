@@ -7,6 +7,8 @@ end
 
 ruby "2.4.1"
 
+gem 'pry-rails'
+
 gem 'bundler', '~> 1.16.1'
 
 gem 'bootstrap-sass'
