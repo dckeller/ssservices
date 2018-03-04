@@ -1,9 +1,8 @@
-<div class="container-fluid navigation-left" id="clickable">
-  <nav class="navbar navbar-toggleable-md navbar-default">
+  <nav class="navbar navbar-toggleable-md navbar-fixed-top">
     <div class="container-fluid">
 
       <div class="navbar-header">
-       <%= link_to image_tag("newlogo.png", alt: "logo", size: "100"), '/', class: 'navbar-brand', id: 'logo' %>
+       <%= link_to image_tag("newlogo.png", alt: "logo", size: "90"), '/', class: 'navbar-brand', id: 'logo' %>
        <a class="navbar-brand" href="/">Structural Support Services | Time Manager <br>
        <%= form_tag(slots_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
        <div class="input-group">
@@ -21,34 +20,34 @@
     <ul class="nav navbar-nav navbar-right" id="menu", style="color: white;">
 
       <li><%= link_to root_path(:anchor => "profile-contact") do %> 
-        <span class="glyphicon glyphicon-envelope hamburger"></span> Contact Us</li>
+        <span class="glyphicon glyphicon-envelope"></span> Contact Us</li>
         <% end %>
 
         <li><%= link_to profiles_path do %> 
-          <span class="glyphicon glyphicon-list-alt hamburger"></span> About Us</li>
+          <span class="glyphicon glyphicon-list-alt"></span> About Us</li>
           <% end %>
 
           <% if user_signed_in? %>
           <li><%= link_to profile_path(current_user.id) do %>
-            <span class="glyphicon glyphicon-user hamburger"></span> My Profile</li>
+            <span class="glyphicon glyphicon-user"></span> My Profile</li>
             <% end %>
 
             <li><%= link_to new_slot_path do %>
-              <span class="glyphicon glyphicon-time hamburger"></span> Add Time Slot</li>
+              <span class="glyphicon glyphicon-time"></span> Add Time Slot</li>
               <% end %>
 
               <li><%= link_to destroy_user_session_path, method: :delete do %>
-                <span class="glyphicon glyphicon-log-out hamburger"></span> Sign Out</li>
+                <span class="glyphicon glyphicon-log-out"></span> Sign Out</li>
                 <% end %>
 
                 <% else %>
 
                 <li><%= link_to new_user_registration_path do %> 
-                  <span class="glyphicon glyphicon-user hamburger"></span> Sign Up</li>
+                  <span class="glyphicon glyphicon-user"></span> Sign Up</li>
                   <% end %>
 
                   <li><%= link_to new_user_session_path do %>
-                    <span class="glyphicon glyphicon-log-in hamburger"></span> Login</li>
+                    <span class="glyphicon glyphicon-log-in"></span> Login</li>
                     <% end %>
                     <% end %>
 

@@ -1,21 +1,21 @@
-/* pushing to the left side you can use float if need bee */
-
 #logo {
 	padding-top: 0px;
 }
 
-.navigation-left {
-  top: 150px;
-  z-index: 1;
-}
-
 .container-fluid {
 	display: fixed;
-	height: 120px;
+	background: rgba(255, 255, 255, 0.5);
+	height: 110px;
 	padding-top: 10px;
-	color: black;
 	font-size: 120%;
-	top: -20px;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: black;
+}
+
+a.navbar-brand {
+	color: black;
 }
 
 

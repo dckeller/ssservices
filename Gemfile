@@ -17,6 +17,10 @@ gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.0.0'
 
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
+
 gem 'devise'
 
 gem "paperclip", '4.3.6'
