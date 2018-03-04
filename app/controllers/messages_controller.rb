@@ -20,6 +20,7 @@ class MessagesController < ApplicationController
 		@message.chat_id = @chat.id
 		@message.slot_creator_id = @slot.id
 		@message.worker_id = current_user.id
+		@message.username = current_user.bus_name
 
 		if @message.save
 			redirect_to "/slots/#{@slot.id}/chats/#{@chat.id}/messages"
@@ -31,7 +32,7 @@ class MessagesController < ApplicationController
 private
 
 	def message_params
-	  params.require(:message).permit(:slot_creator_id, :worker_id, :body, :chat_id)
+	  params.require(:message).permit(:slot_creator_id, :worker_id, :body, :chat_id, :username)
 	end
 
 end

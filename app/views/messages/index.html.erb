@@ -7,14 +7,12 @@
 <% @messages.each do |all_messages| %>
 
 	<% if (current_user.id === all_messages.slot_creator_id) || (current_user.id === all_messages.worker_id)  %>
-		<span><%= all_messages.username %> :</span>
-		<p style="color:blue;">"<%= all_messages.body %>"</p>
-		<span><%= all_messages.created_at%></span>
+		<p style="color:blue;"><%= all_messages.username %> : "<%= all_messages.body %>"</p>
+		<span><%= all_messages.created_at%></span><br>
 
 	<% else %>
-		<span><%= all_messages.username %> :</span>
-		<p style="color:green;">"<%= all_messages.body %>"</p>
-		<span><%= all_messages.created_at%></span>
+		<p style="color:green;"><%= all_messages.username %> : "<%= all_messages.body %>"</p>
+		<span><%= all_messages.created_at%></span><br>
 
 	<% end %>
 <% end %>
