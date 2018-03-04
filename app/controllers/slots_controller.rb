@@ -12,6 +12,7 @@ class SlotsController < ApplicationController
 	def create 
 		@slot = Slot.new(slot_params)
 		@slot.user_id = current_user.id
+		@slot.slot_creator_id = @slot.user_id
 
 		if @slot.save
 			redirect_to profile_path(current_user.id)
@@ -41,12 +42,12 @@ class SlotsController < ApplicationController
 		@slot = Slot.find_by(params[:user_id])
 
 		@slot.destroy
-		redirect_to :back
+		redirect_back fallback_location: root_path
 	end
 
 	private
 
 	def slot_params
-		params.require(:slot).permit(:date, :city, :contact, :start_time, :end_time, :state)
+		params.require(:slot).permit(:date, :city, :contact, :start_time, :end_time, :state, :slot_creator_id)
 	end       
 end

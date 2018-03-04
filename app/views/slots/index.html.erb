@@ -9,7 +9,7 @@
 	</tr>
 <% @slots.each do |time_slot| %>
 	<tr>
-		<td><%= User.find(time_slot.user_id).bus_name %></td>
+		<td><%= User.find(time_slot.slot_creator_id).bus_name %></td>
 		<td><%= time_slot.date %></td>
 		<td><%= time_slot.contact %></td>
 		<td><%= time_slot.start_time %></td>

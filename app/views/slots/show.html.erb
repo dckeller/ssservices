@@ -1,0 +1,23 @@
+<h1>Chat Between</h1>
+<h2><%= User.find(@slot.user_id).bus_name%> & <%= current_user.first_name %></h2>
+
+
+<h4>Date: <%= @slot.date.try(:strftime, "%a, %D") %><h4>
+<h4>City: <%= @slot.city %>, Utah</h4>
+<h4>Time: <%= @slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= @slot.end_time.try(:strftime, "%-l:%M%P") %></h4>
+
+<% @dialogs.each do |dialog| %>
+    <% if (current_user.id === dialog.user_id) || (current_user.id === dialog.renter_id) %>
+        <span><%= dialog.username %>:</span>
+        <p>"<%= dialog.body %>"</p>
+        <span><%= dialog.updated_at %></span>
+    <% else %>
+        <span><%= dialog.username %>:</span>
+        <p>"<%= dialog.body %>"</p>
+        <span><%= dialog.updated_at %></span>
+      </div>
+    <% end %>
+  <% end %>
+
+<%= render "dialog" %>
+

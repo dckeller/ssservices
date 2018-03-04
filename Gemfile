@@ -7,6 +7,8 @@ end
 
 ruby "2.4.1"
 
+gem 'pry-rails'
+
 gem 'bundler', '~> 1.16.1'
 
 gem 'bootstrap-sass'
@@ -14,6 +16,10 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.0.0'
+
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
 
 gem 'devise'
 

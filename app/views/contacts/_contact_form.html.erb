@@ -1,11 +1,11 @@
-<%= form_for @contact, class: 'contact_form' do |f| %>
-  <%= f.text_field :name, required: true, placeholder: "Tell me your name", class: 'contact_text' %><br>
+<%= bootstrap_form_for @contact, class: 'contact_form' do |f| %>
+  <%= f.text_field :name, required: true, placeholder: "Tell me your name", class: 'contact_text' %>
 
-  <%= f.email_field :email, required: true, placeholder: "Tell me your email" %><br>
+  <%= f.email_field :email, required: true, placeholder: "Tell me your email" %>
 
-  <%= f.text_area :message, as: :text, placeholder: "Tell me something" %><br>
+  <%= f.text_area :message, as: :text, placeholder: "Tell me something" %>
 
   <%= f.hidden_field :nickname, hint: 'leave this field blank' %>
 
-  <%= f.submit 'Send Message', class: 'button' %>
-<% end %>
+  <%= f.submit 'Send Message', type: "button", class: 'btn btn-warning' %>
+<% end %><br>

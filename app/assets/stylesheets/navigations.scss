@@ -4,9 +4,18 @@
 
 .container-fluid {
 	display: fixed;
-	background-color: transparent;
-	height: 120px;
+	background: rgba(255, 255, 255, 0.5);
+	height: 110px;
 	padding-top: 10px;
-	color: black;
 	font-size: 120%;
 }
+
+.nav.navbar-nav.navbar-right li a {
+    color: black;
+}
+
+a.navbar-brand {
+	color: black;
+}
+
+

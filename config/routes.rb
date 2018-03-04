@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
-	root to: "sessions#index"
-  
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+root to: "sessions#index"
 
-	resources :slots
+devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
-	resources :skills
+resources :slots do 
+	resources :chats do
+		resources :messages
+	end 
+end
 
-	resources :profiles
+resources :skills
 
-	resources :contacts, only: [:index, :new, :create]
+resources :profiles
+
+resources :contacts, only: [:index, :new, :create]
 
 end

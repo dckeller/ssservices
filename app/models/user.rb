@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :skills
 
+  has_many :chats, through: :skills 
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -14,3 +16,4 @@ class User < ApplicationRecord
   has_attached_file :background, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :background, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]       
 end
+
