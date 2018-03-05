@@ -47,6 +47,9 @@
 <% end %>
 
 <h3>My Time Slots</h3>
+<% if @slot.blank? %>
+  <h5>You have no time slots currently</h5> 
+<% else %>  
 <table>
       <tr>
         <td> Logo </td>
@@ -68,5 +71,7 @@
         <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
       <% end %>
       </tr>
+  <% end %>
+  <% end %>
   <% end %>
 </table>

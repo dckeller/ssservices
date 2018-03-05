@@ -115,7 +115,9 @@
              <div class="sessions-time-slots">
                <h1>See Who's Available</h1>
                <table class="table table-hover">
-                <% if @slots.any? %>   
+                <% if @slots.blank? %>
+                  <h4>There are no time slots currently</h4> 
+                <% else %>    
                   <% @slots.each do |time_slot| %>
                   <tbody>
                   <tr>
