@@ -7,6 +7,19 @@
   text-align: center;
 }
 
+.icons-text {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 150px;
+  padding-right: 150px;
+  background-image: url("sessionsbg.png");
+}
+
+.icons-text h1 {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
 .card-deck-wrapper {
   display: inline;
 }
@@ -25,20 +38,22 @@
 .card {
   margin: 0 auto;
   float: none;
+  margin-top: 40px;
   margin-bottom: 50px;
 }
 
 .info {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 100px;
-  padding-right: 100px;
-  background: orange;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 150px;
+  padding-right: 150px;
+  background-image: url("sessionsbg.png");
+  text-align: center;
 }
 
-.info h1 {
-  text-align: center;
-  color: white;
+.info-text {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 
 .contact-form {
