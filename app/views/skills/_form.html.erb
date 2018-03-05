@@ -1,9 +1,10 @@
-<%= form_for @skill do |f| %>
+<%= bootstrap_form_for @skill do |f| %>
 
 <h4>International Code Council (ICC)</h4>
-	<%=f.check_box :skill_1, {checked: false}, "Structural Soils Special Inspector" %>
-	<%=f.label :skill_1, "Structural Soils Special Inspector" %><br>
-
+	<div class="form-check">
+		<%=f.check_box :skill_1, {checked: false}, "Structural Soils Special Inspector" %>
+		<%=f.label :skill_1, "Structural Soils Special Inspector" %>
+	</div>
 	<%=f.check_box :skill_2, {checked: false}, "Reinforced Concrete" %>
 	<%=f.label :skill_2, "Reinforced Concrete" %><br>
 

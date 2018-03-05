@@ -1,22 +1,24 @@
-<h2>Welcome, <%= @user.first_name %><%= link_to edit_user_registration_path do %>
-  <span class="glyphicon glyphicon-pencil"></span> Edit Profile</h2>
-<% end %>
-<h4>Bussiness Name: <%= @user.bus_name %> </h4>
-<h4>Bussiness Type: <%= @user.bus_type %> </h4>
-<h4>Home City: <%= @user.bus_location %> </h4>
-<h4>Description: <%= @user.description %> </h4>
+<div class="profile-header">
+  <h2>Welcome, <%= @user.first_name %><%= link_to edit_user_registration_path do %>
+    <span class="glyphicon glyphicon-pencil"></span> Edit Profile</h2>
+    <% end %>
+    <h4>Bussiness Name: <%= @user.bus_name %> </h4>
+    <h4>Bussiness Type: <%= @user.bus_type %> </h4>
+    <h4>Home City: <%= @user.bus_location %> </h4>
+    <h4>Description: <%= @user.description %> </h4>
 
-<% @users.each do |people| %>
-  <% if current_user.id === people.id %>
+    <% @users.each do |people| %>
+    <% if current_user.id === people.id %>
     <%= link_to image_tag("fb.png", size: "100"), people.facebook, target: :_blank %>
     <%= link_to image_tag("ld.png", size: "100"), people.linkedin, target: :_blank %>
     <%= link_to image_tag("ws.png", size: "100"), people.website, target: :_blank %><br>
-  <% end %>
-<% end %>  
+    <% end %>
+    <% end %>  
 
-<%= image_tag @user.avatar %><br>
-<%= image_tag @user.background %>
-
+    <%= image_tag @user.avatar %><br>
+    <%= image_tag @user.background %>
+  </div>
+  
 <% if @skill.blank? %>
 <h3>My Certifications <%= link_to "+ Add Certifications", new_skill_path %></h3>
 <% else %>

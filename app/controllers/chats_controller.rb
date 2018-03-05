@@ -1,6 +1,11 @@
 class ChatsController < ApplicationController
 	skip_before_action :require_login
 
+	def index
+		@chats = Chat.all.order("updated_at DESC")
+		@slots = Slot.all
+	end 
+
 	def new
 		@chat = Chat.new
 		@slot = Slot.find_by(params[:slot_creator_id])
@@ -9,7 +14,6 @@ class ChatsController < ApplicationController
 	def create
 		@chat = Chat.create(chat_params)
 		@slot = Slot.find_by(params[:slot_creator_id])
-		@user = current_user
 		@chat.slot_id = @slot.slot_creator_id
 		@chat.worker_id = current_user.id
 		@chat.slot_creator_id = @slot.slot_creator_id

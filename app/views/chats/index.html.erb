@@ -1,0 +1,19 @@
+<div class="chats-header">
+	<h1>Here are all your chats:</h1>
+
+
+	<% @chats.each do |all_chats| %>
+	<% @slots.each do |all_slots| %>
+	<% if all_slots.blank? && all_slots.blank? %>
+		<h4>There are no chats as of now.</h4>
+	<% else %>
+	<% if (current_user.id === all_chats.slot_creator_id) || (current_user.id === all_chats.worker_id)  %>
+		<%= link_to "/slots/#{all_slots.id}/chats/#{all_chats.id}/messages",  class: 'btn btn-warning' do %>
+			<i></i> Chat  
+		<% end %><br>
+
+	<% end %>
+	<% end %>
+	<% end %>
+	<% end %>
+</div>
