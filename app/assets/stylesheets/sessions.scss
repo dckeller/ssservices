@@ -2,33 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h3 {
-    font-family: helvetica;
-    color: orange;
-}
 
 .icons {
   text-align: center;
-  margin-left: 100px;
-  margin-right: 100px;
 }
 
-.card-deck {
+.card-deck-wrapper {
+  display: inline;
+}
+
+.card-group {
   display: flex;
+}
+
+
+.card-1 {
+  margin: 10px;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .card {
   margin: 0 auto;
+  float: none;
+  margin-bottom: 50px;
 }
 
 .info {
-    margin-left: 100px;
-    margin-right: 100px;
-    background: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background: orange;
 }
 
-.card-img-top:hover {
-    border: 3px solid orange;
-    border-radius: 25%;
-    border-spacing: 15px;
+.info h1 {
+  text-align: center;
+  color: white;
 }
+
+.contact-form {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.sessions-time-slots {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+

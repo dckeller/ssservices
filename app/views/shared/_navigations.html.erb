@@ -4,6 +4,7 @@
       <div class="navbar-header">
        <%= link_to image_tag("newlogo.png", alt: "logo", size: "90"), '/', class: 'navbar-brand', id: 'logo' %>
        <a class="navbar-brand" href="/">Structural Support Services | Time Manager <br>
+        
        <%= form_tag(slots_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
        <div class="input-group">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Certs & Times" %>

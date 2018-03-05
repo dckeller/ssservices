@@ -4,159 +4,148 @@
 	<title>Home | SSServices</title>
 </head>
 <body>
-<!-- <div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-            <div class="pull-left"><h4>Your picture gallery</h4></div>
-              <button type="button" class="close" data-dismiss="modal" title="Close">
-                <span class="glyphicon glyphicon-remove"></span>
-              </button>
-          </div>
-    <div class="modal-body"> -->
 
-<div id="myGallery" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000" >
+  <div id="myGallery" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000" >
 
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myGallery" data-slide-to="0" class="active"></li>
-    <li data-target="#myGallery" data-slide-to="1"></li>
-    <li data-target="#myGallery" data-slide-to="2"></li>
-    <li data-target="#myGallery" data-slide-to="3"></li>
-  </ol>    	
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myGallery" data-slide-to="0" class="active"></li>
+      <li data-target="#myGallery" data-slide-to="1"></li>
+      <li data-target="#myGallery" data-slide-to="2"></li>
+      <li data-target="#myGallery" data-slide-to="3"></li>
+    </ol>    	
 
- <div class="carousel-inner">
-	<div class="item active">
-    <%= image_tag("car4.jpg",
-                  alt: "Image description here",
-                  class: "img-responsive") %>
-      <div class="carousel-caption">
-        <h3>Nightime Inspection</h3>
-        <p>We can even help at night!</p>
-      </div>
-  </div>
-
-  <div class="item">
-    <%= image_tag("car2.jpg",
-                  alt: "Image description here",
-                  class: "img-responsive") %>
-      <div class="carousel-caption">
-        <h3>Wood and High Up</h3>
-        <p>Need help inspecting tough buildings?</p>
-      </div>
-  </div>
-
-  <div class="item">
-    <%= image_tag("car3.jpeg",
-                  alt: "Image description here",
-                  class: "img-responsive") %>
-      <div class="carousel-caption">
-        <h3>Need scaffolding?</h3>
-        <p>Snow or shine, we're there!</p>
-      </div>
-  </div>
-
-  <div class="item">
-    <%= image_tag("car4.jpg",
-                  alt: "Image description here",
-                  class: "img-responsive") %>
-      <div class="carousel-caption">
-        <h3>Structural Support Services</h3>
-        <p>We got you!</p>
-      </div>
-  </div>
-
-</div> <!-- end inner carosol -->
-
-<!-- Begin and Previous Buttons -->
-	<a class="left carousel-control" href="#myGallery" role="button" data-slide="prev">
-	  <span class="glyphicon glyphicon-chevron-left"></span></a> 
-	  <a class="right carousel-control"
-	  href="#myGallery" role="button" data-slide="next">
-	  <span class="glyphicon glyphicon-chevron-right"></span>
-	</a>
-</div> <!-- end myGallery -->
-<!-- </div> --><!--end modal-body-->
-        <!-- <div class="modal-footer">
-        <div class="pull-left">
+    <!-- Different Slides -->
+    <div class="carousel-inner">
+     <div class="item active">
+      <%= image_tag("car4.jpg",
+        alt: "Image description here",
+        class: "img-responsive") %>
+        <div class="carousel-caption">
+          <h3>Nightime Inspection</h3>
+          <p>We can even help at night!</p>
         </div>
-          <button class="btn-sm close" type="button" data-dismiss="modal">Close</button>
-      </div><!-end modal-footer-->
-    <!-- </div> --><!--end modal-content-->
-  <!-- </div> --><!--end modal-dialoge-->
-<!-- </div> --><!--end myModal-->
-<div class="icons">
-    <h1>We Are Your</h1>
-  <div class="card-deck">
-	  <div class="card">
-	    <%= image_tag("special.png",
-	                  alt: "Card image cap",
-	                  class: "card-img-top",
-	                  size: "300") %>
-	    <div class="card-block">
-	      <h3 class="card-title">Special</h3>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <%= image_tag("inspection.png",
-	                  alt: "Card image cap",
-	                  class: "card-img-top",
-	                  size: "300") %>
-	    <div class="card-block">
-	      <h3 class="card-title">Inspection</h3>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <%= image_tag("connection.png",
-	                  alt: "Card image cap",
-	                  class: "card-img-top",
-	                  size: '300') %>
-	    <div class="card-block">
-	      <h3 class="card-title">Connection</h3>
-	    </div>
-	  </div>
-  </div>
-</div>	
+      </div>
 
-<div class="info">
-	<h1>Why A Time Management Site</h1>
-		<h4>As a sole-propriator your time is important and we know that. This website was designed to both help show of your certifications, while helping you connect to the right people with the right skill sets.  You'll be able to post time your available for project work, as well as search for work based on your time available and certifications that you hold.</h4><br>
-  
-<h1 id="profile-slots">See Who's Available</h1>
-<table>
-      <tr>
-        <td> Logo </td>
-        <td> City </td>
-        <td> Company Name </td>
-        <td> Date Available </td>
-        <td> Time Available </td>
-      </tr>
-   <% if @slots.any? %>   
-    <% @slots.each do |time_slot| %>
-      <tr>
-        <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "100") %></td>
-        <td><%= time_slot.city %></td>
-        <td><%= User.find(time_slot.slot_creator_id).bus_name %></td>
-        <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
-        <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
-        <td><%= link_to 'View Certifications', skill_path(time_slot.slot_creator_id) %></td>
-      <% if user_signed_in? && current_user.id === time_slot.slot_creator_id %>
-        <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
-        <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
-      <% end %>
-      <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
-        <% @slot = time_slot %>
-        <td><%= render "chats/new_chat_form" %></td>
-      <% end %>  
-      </tr>
-    <% end %>
-  <% end %>
-</table>
+      <div class="item">
+        <%= image_tag("car2.jpg",
+          alt: "Image description here",
+          class: "img-responsive") %>
+          <div class="carousel-caption">
+            <h3>Wood and High Up</h3>
+            <p>Need help inspecting tough buildings?</p>
+          </div>
+        </div>
 
-<h1 id="profile-contact">Contact Us</h1>
-  <h4>By Phone: (435) 277-0637</h4>
-  <div class="contact">
-    <%= render "contacts/contact_form" %>
-  </div>
-</body>
-</html>
+        <div class="item">
+          <%= image_tag("car3.jpeg",
+            alt: "Image description here",
+            class: "img-responsive") %>
+            <div class="carousel-caption">
+              <h3>Need scaffolding?</h3>
+              <p>Snow or shine, we're there!</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <%= image_tag("car4.jpg",
+              alt: "Image description here",
+              class: "img-responsive") %>
+              <div class="carousel-caption">
+                <h3>Structural Support Services</h3>
+                <p>We got you!</p>
+              </div>
+            </div>
+
+          </div> <!-- end inner carosol -->
+
+          <!-- Begin and Previous Buttons -->
+          <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev">
+           <span class="glyphicon glyphicon-chevron-left"></span></a> 
+
+           <a class="right carousel-control" href="#myGallery" role="button" data-slide="next">
+             <span class="glyphicon glyphicon-chevron-right"></span>
+           </a>
+         </div> <!-- end myGallery -->
+
+         <div class="icons">
+          <h1>We Are Your</h1>
+          <div class="card-deck-wrapper"> 
+            <div class="card-group">
+             <div class="card card-1">
+              <%= image_tag("special.png",
+               alt: "Card image cap",
+               class: "card-img-top",
+                 size: "200") %>
+                 <div class="card-block">
+                  <h3 class="card-title">Special</h3>
+                </div>
+              </div>
+              <div class="card card-1">
+               <%= image_tag("inspection.png",
+                 alt: "Card image cap",
+                 class: "card-img-top",
+                   size: "200") %>
+                   <div class="card-block">
+                     <h3 class="card-title">Inspection</h3>
+                   </div>
+                 </div>
+                 <div class="card card-1">
+                   <%= image_tag("connection.png",
+                     alt: "Card image cap",
+                     class: "card-img-top",
+                       size: '200') %>
+                       <div class="card-block">
+                         <h3 class="card-title">Connection</h3>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             <div class="info">
+               <h1>Why A Time Management Site</h1>
+               <h4>As a sole-propriator your time is important and we know that. This website was designed to both help show of your certifications, while helping you connect to the right people with the right skill sets.  You'll be able to post time your available for project work, as well as search for work based on your time available and certifications that you hold.</h4><br>
+             </div>
+             <div class="sessions-time-slots">
+               <h1>See Who's Available</h1>
+               <table>
+                <tr>
+                  <td> Logo </td>
+                  <td> City </td>
+                  <td> Company Name </td>
+                  <td> Date Available </td>
+                  <td> Time Available </td>
+                </tr>
+                <% if @slots.any? %>   
+                <% @slots.each do |time_slot| %>
+                <tr>
+                  <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "100") %></td>
+                  <td><%= time_slot.city %></td>
+                  <td><%= User.find(time_slot.slot_creator_id).bus_name %></td>
+                  <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
+                  <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
+                  <td><%= link_to 'View Certifications', skill_path(time_slot.slot_creator_id) %></td>
+                  <% if user_signed_in? && current_user.id === time_slot.slot_creator_id %>
+                  <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
+                  <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
+                  <% end %>
+                  <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
+                  <% @slot = time_slot %>
+                  <td><%= render "chats/new_chat_form" %></td>
+                  <% end %>  
+                </tr>
+                <% end %>
+                <% end %>
+              </table>
+            </div>
+            <div class="contact-form">
+              <h1 id="profile-contact">Contact Us</h1>
+              <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
+              <div class="contact">
+                <%= render "contacts/contact_form" %>
+              </div>
+            </div>
+          </body>
+          </html>
