@@ -114,33 +114,27 @@
              </div>
              <div class="sessions-time-slots">
                <h1>See Who's Available</h1>
-               <table>
-                <tr>
-                  <td> Logo </td>
-                  <td> City </td>
-                  <td> Company Name </td>
-                  <td> Date Available </td>
-                  <td> Time Available </td>
-                </tr>
+               <table class="table table-hover">
                 <% if @slots.any? %>   
-                <% @slots.each do |time_slot| %>
-                <tr>
-                  <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "100") %></td>
-                  <td><%= time_slot.city %></td>
-                  <td><%= User.find(time_slot.slot_creator_id).bus_name %></td>
-                  <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
-                  <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
-                  <td><%= link_to 'View Certifications', skill_path(time_slot.slot_creator_id) %></td>
+                  <% @slots.each do |time_slot| %>
+                  <tbody>
+                  <tr>
+                    <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "100", class: "image-logo") %></td>
+                    <td><%= time_slot.city %></td>
+                    <td><%= User.find(time_slot.slot_creator_id).bus_name %></td>
+                    <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
+                    <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
+                    <td><%= link_to 'View Certifications', skill_path(time_slot.slot_creator_id) %></td>
                   <% if user_signed_in? && current_user.id === time_slot.slot_creator_id %>
-                  <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
-                  <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
+                    <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
+                    <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
                   <% end %>
                   <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
                   <% @slot = time_slot %>
-                  <td><%= render "chats/new_chat_form" %></td>
+                    <td><%= render "chats/new_chat_form" %></td>
                   <% end %>  
-                </tr>
-                <% end %>
+                  </tr>
+                  <% end %>
                 <% end %>
               </table>
             </div>

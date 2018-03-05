@@ -57,10 +57,10 @@
       <tr>
         <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "100") %></td>
         <td><%= User.find(time_slot.slot_creator_id).bus_name %></td>
-        <td><%= time_slot.date.strftime("%a, %D") %></td>
+        <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
         <td><%= time_slot.contact %></td>
-        <td><%= time_slot.start_time.strftime("%I:%M%p") %></td>
-        <td><%= time_slot.end_time.strftime("%I:%M%p") %></td>
+        <td><%= time_slot.start_time.try(:strftime, "%I:%M%p") %></td>
+        <td><%= time_slot.end_time.try(:strftime, "%I:%M%p") %></td>
       <% if current_user.id === time_slot.slot_creator_id %>
         <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
         <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
