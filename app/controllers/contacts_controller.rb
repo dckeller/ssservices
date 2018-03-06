@@ -10,9 +10,8 @@ class ContactsController < ApplicationController
         @contact.request = request
 
         if @contact.deliver
-        	@contact = Contact.new
 
-        	redirect_to root_path
+        	redirect_to root_path,  notice: 'Messagage received, we will respond to you within 1-business day'
         else 
         	render 'new'
         end 	
