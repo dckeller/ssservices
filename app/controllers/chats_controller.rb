@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
 	skip_before_action :require_login
 
 	def index
-		@chats = Chat.all
+		@slots = Slot.all
 
 		@chat = Chat.find_by(params[:chat_id])
 		@slot = Chat.where(slot_creator_id: current_user.id)
@@ -16,7 +16,7 @@ class ChatsController < ApplicationController
 	def create
 		@chat = Chat.create(chat_params)
 		@slot = Slot.find_by(params[:slot_creator_id])
-		@chat.id = @Chat.chat_id
+		@chat.chat_id = current_user.id
 		@chat.worker_id = current_user.id
 		@chat.slot_creator_id = @slot.slot_creator_id
 
