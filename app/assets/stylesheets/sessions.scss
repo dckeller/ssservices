@@ -9,15 +9,14 @@
 
 .icons-text {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   padding-left: 150px;
   padding-right: 150px;
-  background: orange;
 }
 
 .icons-text h1 {
   /* background: rgba(255, 255, 255, 0.8); */
-  color: white;
+  color: orange;
 }
 
 .card-deck-wrapper {
@@ -38,7 +37,7 @@
 .card {
   margin: 0 auto;
   float: none;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
@@ -66,4 +65,7 @@
   margin-right: 100px;
 }
 
-
+.table-scroll {
+  overflow-y: auto;
+  height: 500px;
+}
