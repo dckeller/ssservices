@@ -1,54 +1,78 @@
 <div class="profile-header">
-<h4>Bussiness Name: <%= @user.bus_name %> </h4>
-<h4>Bussiness Type: <%= @user.bus_type %> </h4>
-<h4>Home City: <%= @user.bus_location %> </h4>
-<h4>Description: <%= @user.description %> </h4>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card text-center">
+        <div class="card-header">
+          <h2>A Little About Us</h2>
+          </div>
+          <%= image_tag (@user.avatar), class: "card-img-top", alt: "Card image cap" %>
+          <div class="card-body">
+            <a><%= link_to image_tag("fb.png", size: "50"), @user.facebook, target: :_blank %></a>
+            <a><%= link_to image_tag("ld.png", size: "50"), @user.linkedin, target: :_blank %></a>
+            <a><%= link_to image_tag("ws.png", size: "50"), @user.website, target: :_blank %></a>
+            <h5 class="card-title"><%= @user.bus_name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @user.bus_type %></h6>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @user.bus_location %></h6>
+            <p class="card-text"><%= @user.description %></p>
+          </div>
+        </div>  
+      </div>
+      <div class="col-sm-6">
+        <div class="card text-center">
+          <div class="card-header">  
+            <% if @skill.blank? %>
+            <% else %>
+            <% @skill.each do |all| %>
+            <h3>Our Certifications</h3>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= all.skill_1  %></li>
+                <li class="list-group-item"><%= all.skill_2  %></li>
+                <li class="list-group-item"><%= all.skill_3  %></li>
+                <li class="list-group-item"><%= all.skill_4  %></li>
+                <li class="list-group-item"><%= all.skill_5  %></li>
+                <li class="list-group-item"><%= all.skill_6  %></li>
+                <li class="list-group-item"><%= all.skill_7  %></li>
+                <li class="list-group-item"><%= all.skill_8  %></li>
+                <li class="list-group-item"><%= all.skill_9  %></li>
+                <li class="list-group-item"><%= all.skill_10 %></li>
+                <li class="list-group-item"><%= all.skill_11 %></li>
+                <li class="list-group-item"><%= all.skill_12 %></li>
+                <li class="list-group-item"><%= all.skill_13 %></li>
+                <li class="list-group-item"><%= all.skill_14 %></li>
+              </ul>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<%= link_to image_tag("fb.png", size: "100"), @user.facebook, target: :_blank %>
-<%= link_to image_tag("ld.png", size: "100"), @user.linkedin, target: :_blank %>
-<%= link_to image_tag("ws.png", size: "100"), @user.website, target: :_blank %><br> 
-
-<%= image_tag @user.avatar %><br>
-<%= image_tag @user.background %>
-
-<h3>My Certifications</h3>
-<% @skill.each do |all| %>
-      <ul id="skills_list">
-        <li><%= all.skill_1  %></li>
-        <li><%= all.skill_2  %></li>
-        <li><%= all.skill_3  %></li>
-        <li><%= all.skill_4  %></li>
-        <li><%= all.skill_5  %></li>
-        <li><%= all.skill_6  %></li>
-        <li><%= all.skill_7  %></li>
-        <li><%= all.skill_8  %></li>
-        <li><%= all.skill_9  %></li>
-        <li><%= all.skill_10 %></li>
-        <li><%= all.skill_11 %></li>
-        <li><%= all.skill_12 %></li>
-        <li><%= all.skill_13 %></li>
-        <li><%= all.skill_14 %></li>
-      </ul>
-<% end %>
-
-<h3>My Time Slots</h3>
-<table>
-      <tr>
-        <td> Logo </td>
-        <td> Company Name </td>
-        <td> Date Available </td>
-        <td> Preferred Contact Method </td>
-        <td> Time Available </td>
-      </tr>
-    <% @slot.each do |time_slot| %>
-      <tr>
-        <td><%= image_tag(User.find(time_slot.user_id).avatar, size: "100") %></td>
-        <td><%= User.find(time_slot.user_id).bus_name %></td>
-        <td><%= time_slot.date.strftime("%a, %D") %></td>
-        <td><%= time_slot.contact %></td>
-        <td><%= time_slot.start_time.strftime("%I:%M%p") %></td>
-        <td><%= time_slot.end_time.strftime("%I:%M%p") %></td>
-      </tr>
-  <% end %>
-</table>
-</div>
+    <div class="profile-slot-time">
+    <h2>My Time Slots</h2>
+      <% if @slot.blank? %>
+    <h5>You have no time slots currently</h5> 
+      <% else %>
+    </div>
+    <div class="card-deck-wrapper"> 
+      <div class="card-deck">
+        <% @slot.each do |time_slot| %>
+        <div class="card text-center" style="width: 18rem;">
+          <a><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "100", class: "card-img-top", alt: "Card image cap") %></a>
+          <div class="card-body">
+            <h5 class="card-title"><%= time_slot.city %></h5>
+            <h5 class="card-title"><%= User.find(time_slot.slot_creator_id).bus_name %></h5>
+            <h5 class="card-title"><%= time_slot.date.try(:strftime, "%a, %D") %></h5>
+            <p class="card-text"><%= time_slot.start_time.try(:strftime, "%I:%M%p") %> - <%= time_slot.end_time.try(:strftime, "%I:%M%p") %></p>
+            <% if current_user.id === time_slot.slot_creator_id %>
+            <a><%= link_to 'Update', edit_slot_path(time_slot), class: "btn btn-primary" %></a>
+            <a><%= link_to 'Delete', slot_path(time_slot), method: :delete, class: "btn btn-primary" %></a>
+            <% end %>
+          </div>
+          </div>
+            <% end %>
+            <% end %>
+      </div>
+    </div>

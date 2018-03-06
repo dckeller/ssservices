@@ -75,36 +75,39 @@
           <div class="card-deck-wrapper"> 
             <div class="card-group">
              <div class="card card-1">
-              <%= image_tag("special.png",
-               alt: "Card image cap",
-               class: "card-img-top",
-                 size: "200") %>
-                 <div class="card-block">
-                  <h3 class="card-title">Special</h3>
-                </div>
-              </div>
-              <div class="card card-1">
-               <%= image_tag("inspection.png",
+               <div class="card-block">
+                <h2 class="card-title">Special</h2>
+                <%= image_tag("special.png",
                  alt: "Card image cap",
                  class: "card-img-top",
-                   size: "200") %>
-                   <div class="card-block">
-                     <h3 class="card-title">Inspection</h3>
-                   </div>
+                   size: "250") %>
+                   <h3 class="card-title", style="color:orange;">1.) Sign-Up</h3>
                  </div>
-                 <div class="card card-1">
-                   <%= image_tag("connection.png",
+               </div>
+               <div class="card card-1">
+                 <div class="card-block">
+                   <h2 class="card-title">Inspection</h2>
+                   <%= image_tag("inspection.png",
                      alt: "Card image cap",
                      class: "card-img-top",
-                       size: '200') %>
-                       <div class="card-block">
-                         <h3 class="card-title">Connection</h3>
+                       size: "250") %>
+                       <h3 class="card-title", style="color:orange;">2.) Find Work</h3>
+                     </div>
+                   </div>
+                   <div class="card card-1">
+                     <div class="card-block">
+                       <h2 class="card-title">Connection</h2>
+                       <%= image_tag("connection.png",
+                         alt: "Card image cap",
+                         class: "card-img-top",
+                           size: '250') %>
+                           <h3 class="card-title", style="color:orange;">3.) Earn $$$</h3>
+                         </div>
                        </div>
                      </div>
                    </div>
                  </div>
                </div>
-             </div>
 
              <div class="info">
                 <div class="info-text">
@@ -112,12 +115,24 @@
                  <h4>As a sole-propriator your time is important and we know that. This website was designed to both help show of your certifications, while helping you connect to the right people with the right skill sets.  You'll be able to post time your available for project work, as well as search for work based on your time available and certifications that you hold.</h4><br>
                </div>
              </div>
+
              <div class="sessions-time-slots">
                <h1>See Who's Available</h1>
+               <div class="table-scroll">
                <table class="table table-hover">
                 <% if @slots.blank? %>
                   <h4>There are no time slots currently</h4> 
-                <% else %>    
+                <% else %>
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Profile</th>
+                  </tr>
+                  </thead>    
                   <% @slots.each do |time_slot| %>
                   <tbody>
                   <tr>
@@ -126,19 +141,17 @@
                     <td><%= User.find(time_slot.slot_creator_id).bus_name %></td>
                     <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
                     <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
-                    <td><%= link_to 'View Certifications', skill_path(time_slot.slot_creator_id) %></td>
-                  <% if user_signed_in? && current_user.id === time_slot.slot_creator_id %>
-                    <td><%= link_to 'Update', edit_slot_path(time_slot) %></td>
-                    <td><%= link_to 'Delete', slot_path(time_slot), method: :delete %></td>
-                  <% end %>
+                    <td><%= link_to 'View Profile', profile_path(User.find(time_slot.slot_creator_id)) %></td>
+                  
                   <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
                   <% @slot = time_slot %>
-                    <td><%= render "chats/new_chat_form" %></td>
+                    <!-- <td><%#= render "chats/new_chat_form" %></td> -->
                   <% end %>  
                   </tr>
                   <% end %>
                 <% end %>
               </table>
+            </div>
             </div>
             <div class="contact-form">
               <h1 id="profile-contact">Contact Us</h1>
