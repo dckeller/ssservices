@@ -19,8 +19,15 @@ class ChatsController < ApplicationController
 		@chat.slot_creator_id = @slot.slot_creator_id
 
 		@chat.save
-		redirect_to "/slots/#{@slot.id}/chats/#{@chat.id}/messages"
-	end  
+		redirect_to "/slots/#{@slot.id}/chats/#{@chat.id}"
+	end
+
+	def show
+		@message = Message.new
+		@messages = Message.all
+		@slot = Slot.find_by(params[:slot_creator_id])
+		@chat = Chat.find(params[:id])
+	end   
 
 private
 
