@@ -1,5 +1,5 @@
 class Chat < ApplicationRecord
-	belongs_to 	:slot
-	 
-	has_many 		:messages
+	belongs_to :slot
+
+	has_many :messages
 end

@@ -1,30 +1,32 @@
 <div class="chats-header">
 	<h1>Here are all your chats:</h1>
 
+	<% if @chats.blank? %>
+	<% end  %>
 
 	<% @chats.each do |all_chats| %>
 	<% @slots.each do |all_slots| %>
 
-	<% if all_chats.blank? %>
-		<h4>There are no chats as of now.</h4>
-	<% end  %>
-
 	<% if (current_user.id === all_chats.slot_creator_id) && (current_user.id != all_chats.worker_id)  %>
 	<h4>Here are chats from your time slots:</h4>
 
-	<%= link_to "/slots/#{all_slots.id}/chats/#{all_chats.id}",  class: 'btn btn-warning' do %>
-	<i></i> Chat
+	<% if @slot.exists? %>
+		<%= link_to "/slots/#{@slot.slot_creator_id}/chats/#{all_chats.id}",  class: 'btn btn-warning' do %>
+		<i></i> Chat
+	<% end %>
 	<% end %>  
 	
 	<% elsif (current_user.id != all_chats.slot_creator_id) && (current_user.id === all_chats.worker_id) %>
 	<h4>Here are chats that you are interested in:</h4>
 
-	<%= link_to "/slots/#{all_slots.id}/chats/#{all_chats.id}",  class: 'btn btn-success' do %>
-	<i></i> Chat
+	<% if @chat.exists? %>
+		<%= link_to "/slots/#{all_slots.id}/chats/#{@chat.worker_id}",  class: 'btn btn-success' do %>
+		<i></i> Chat
 	<% end %>
-	
-	<% elsif (current_user.id != all_slots.slot_creator_id) && (current_user.id != all_chats.worker_id) %>
-	<h4>There are no chats as of now.</h4>
+	<% end %>
+
+	<% elsif (current_user.id != all_chats.slot_creator_id) && (current_user.id != all_chats.worker_id) %>
+		<h4>There are no chats as of now.</h4>
 	<% end %>
 	
 	<% end %>

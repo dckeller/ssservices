@@ -2,8 +2,11 @@ class ChatsController < ApplicationController
 	skip_before_action :require_login
 
 	def index
-		@chats = Chat.all.order("updated_at DESC")
+		@chats = Chat.all
 		@slots = Slot.all
+
+		@chat = Chat.where(worker_id: current_user.id)
+		@slot = Slot.where(slot_creator_id: current_user.id)
 	end 
 
 	def new
@@ -24,7 +27,7 @@ class ChatsController < ApplicationController
 
 	def show
 		@message = Message.new
-		@messages = Message.all
+		@messages = Message.all.order("created_at DESC")
 		@slot = Slot.find_by(params[:slot_creator_id])
 		@chat = Chat.find(params[:id])
 	end   

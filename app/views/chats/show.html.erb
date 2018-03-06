@@ -5,6 +5,9 @@
 	<h4>Date: <%= @slot.date.try(:strftime, "%a, %D") %></h4>
 	<h4>Time: <%= @slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= @slot.end_time.try(:strftime, "%-l:%M%P") %></h4>
 
+	<% if @messages.blank? %>
+		<h4>Start chat now.</h4>
+	<% else %>
 	<% @messages.each do |all_messages| %>
 
 	<% if all_messages.chat_id === @chat.id %>
@@ -19,6 +22,6 @@
 	<% end %>
 	<% end %>
 	<% end %>
-
+	<% end %>
 	<%= render 'messages/new_message_form' %>
 </div>
