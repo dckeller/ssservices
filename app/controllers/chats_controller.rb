@@ -3,10 +3,9 @@ class ChatsController < ApplicationController
 
 	def index
 		@chats = Chat.all
-		@slots = Slot.all
 
-		@chat = Chat.where(worker_id: current_user.id)
-		@slot = Slot.where(slot_creator_id: current_user.id)
+		@chat = Chat.find_by(params[:chat_id])
+		@slot = Chat.where(slot_creator_id: current_user.id)
 	end 
 
 	def new
@@ -17,12 +16,12 @@ class ChatsController < ApplicationController
 	def create
 		@chat = Chat.create(chat_params)
 		@slot = Slot.find_by(params[:slot_creator_id])
-		@chat.slot_id = @slot.slot_creator_id
+		@chat.id = @Chat.chat_id
 		@chat.worker_id = current_user.id
 		@chat.slot_creator_id = @slot.slot_creator_id
 
 		@chat.save
-		redirect_to "/slots/#{@slot.id}/chats/#{@chat.id}"
+		redirect_to "/slots/#{@slot.id}/chats"
 	end
 
 	def show
@@ -35,7 +34,7 @@ class ChatsController < ApplicationController
 private
 
 	def chat_params
-	  params.require(:chat).permit(:slot_creator_id, :worker_id, :slot_id)
+	  params.require(:chat).permit(:slot_creator_id, :worker_id, :chat_id)
 	end
 
 end
