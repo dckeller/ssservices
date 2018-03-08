@@ -4,21 +4,26 @@
   <title>Work Hard | Play Hard</title>
 </head>
 <body>
+	<div class="header-space">
+		<h3>Our Mission:</h3>
+		<h4>Structural Support Services (SS Services) wants to provide services to Structural Engineer of Record, Project Owner, Contractors, Jurisdiction and Approved Agency’s for maintaining the the required structural inspection requirements on their project of any size. Due to the high demand for certified and experienced personnel in our market today, our goal is to make ourselves more easily available for short notice, last minute or overlooked inspections. By being Independent Inspectors, we are not bound by only being allowed to work for certain clients. Hopefully allowing our client to stay productive and constructive.</h4>
+		<h5>C.E.O. -Eli Lambson</h5>
+	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col-xs-6">
 				<div class="card">
-					<iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Salt Lake City County&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+					<iframe width="500" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Salt Lake City County&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 				</div>
 			</div>
-			<div class="col">
+			<div class="col-xs-6">
 				<div class="card">
 					<h4 class="card-header">Structural Support Services</h4>
+					<h4 class="card-title">Serving the Greater Salt Lake City Area</h4>
 					<div class="card-body">
 						<p class="card-text">By Phone: (435) 277-0637</p>
-						<a> <%= link_to "Contact Us", root_path(:anchor => "profile-contact"), class: "btn btn-default" %></a>
-						<h5 class="card-title">Serving the Greater Salt Lake City Area</h5>
-						<ul class="list-group list-group-flush">
+						<a> <%= link_to "Email Us", root_path(:anchor => "profile-contact"), class: "btn btn-default" %></a><br>
+						<ul class="list-group">
 							<li class="list-group-item active">Inspection Services We Provide:</li>
 							<li class="list-group-item">International Code Council (ICC)</li>
 							<li class="list-group-item">American Welding Society (AWS)</li>
@@ -30,19 +35,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<div class="card text-center">
-					<h4 class="class-header">Our Mission:</h4>
-					<div class="card-body">
-						<p class="card-text">Structural Support Services (SS Services) wants to provide services to Structural Engineer of Record, Project Owner, Contractors, Jurisdiction and Approved Agency’s for maintaining the the required structural inspection requirements on their project of any size.  Due to the high demand for certified and experienced personnel in our market today, our goal is to make ourselves more easily available for short notice, last minute or overlooked inspections. By being Independent Inspectors, we are not bound by only being allowed to work for certain clients. Hopefully allowing our client to stay productive and constructive.</p>
-						<p class=" card-text text-muted">C.E.O. - Eli Lambson</p>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
-</div>
   <section id="photos">
   	<%= image_tag("profile1.jpg") %>
   	<%= image_tag("profile2.jpg") %>
