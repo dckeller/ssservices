@@ -2,14 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.row {
+  margin-top: 100px;
+}
+
 .profile-header {
-	margin-top: 80px;
-	margin-left: 20px;
-	margin-right: 20px;
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .card-img-top {
-	border-radius: 50%;
+  border-radius: 50%;
 }
 
 .card-deck-wrapper {
@@ -17,31 +21,15 @@
 }
 
 .card-deck {
-	display: flex;
+  display: flex;
 }
-
-.card {
-  margin: 0 auto;
-  float: none;
- }
 
 .profile-slot-time {
-	text-align: center;
-}
-
-.intro {
-	margin-top: 100px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 150px;
-  padding-right: 150px;
-  background: orange;
   text-align: center;
 }
 
-.intro-text {
-  color: white;
-}
+
+
 
 #photos {
   /* Prevent vertical gaps */
@@ -59,14 +47,6 @@
   /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
-}
-
-.container {
-	display: inline;
-}
-
-.row {
-	display: flex;
 }
 
 @media (max-width: 1200px) {
