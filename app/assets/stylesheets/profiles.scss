@@ -3,9 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .header-space {
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-top: 100px;
-  margin-left: 20px;
-  margin-right: 20px;
+  background: orange;
+  text-align: center;
+}
+
+.header-space-text {
+  margin-left: 100px;
+  margin-right: 100px;
+  color: white;
   text-align: center;
 }
 
