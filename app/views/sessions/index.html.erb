@@ -109,7 +109,7 @@
                  </div>
                </div>
 
-             <div class="info">
+               <div class="info">
                 <div class="info-text">
                  <h1>Why A Time Management Site</h1>
                  <h4>As a sole-propriator your time is important and we know that. This website was designed to both help show of your certifications, while helping you connect to the right people with the right skill sets.  You'll be able to post time your available for project work, as well as search for work based on your time available and certifications that you hold.</h4><br>
@@ -120,48 +120,48 @@
                <h1>Request Service</h1>
                <h4>What time works best for you?</h4>
                <div class="table-scroll">
-               <table class="table table-hover">
-                <% if @slots.blank? %>
+                 <table class="table table-hover">
+                  <% if @slots.blank? %>
                   <h4>There are no time slots currently</h4> 
-                <% else %>
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col"><h4>Location</h4></th>
-                    <th scope="col"><h4>Date</h4></th>
-                    <th scope="col"><h4>Time</h4></th>
-                    <th scope="col"></th>
-                  </tr>
+                  <% else %>
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"><h4>Location</h4></th>
+                      <th scope="col"><h4>Date</h4></th>
+                      <th scope="col"><h4>Time</h4></th>
+                      <th scope="col"></th>
+                    </tr>
                   </thead>    
                   <% @slots.each do |time_slot| %>
                   <tbody>
-                  <tr>
-                    <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
-                    <td><h4><%= time_slot.city %></h4></td>
-                    <td><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
-                    <td><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
-                    <td><%= link_to 'Pick This Time', profile_path(User.find(time_slot.slot_creator_id)) %></td>
-                  
-                  <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
-                  <% @slot = time_slot %>
-                    <!-- <td><%#= render "chats/new_chat_form" %></td> -->
-                  <% end %>  
-                  </tr>
-                  <% end %>
-                <% end %>
-              </table>
-            </div>
-            </div>
-            <div class="contact-form">
-              <h1 id="profile-contact">Contact Us</h1>
-              <h4>Need an inspector outside the Salt Lake Area?</h4>
-              <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
-              <div id="contact">
-                <%= render "contacts/contact_form" %>
-              </div>
-              <div id="flash-message">
-                <%= render 'contacts/flash' %>
-              </div>
-            </div>
-          </body>
-          </html>
+                    <tr>
+                      <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
+                      <td><h4><%= time_slot.city %></h4></td>
+                      <td><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
+                        <td><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
+                        <td><%= link_to 'Pick This Time', profile_path(User.find(time_slot.slot_creator_id)) %></td>
+                        
+                        <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
+                        <% @slot = time_slot %>
+                        <!-- <td><%#= render "chats/new_chat_form" %></td> -->
+                        <% end %>  
+                      </tr>
+                      <% end %>
+                      <% end %>
+                    </table>
+                  </div>
+                </div>
+                <div class="contact-form">
+                  <h1 id="profile-contact">Contact Us</h1>
+                  <h4>Need an inspector outside the Salt Lake Area?</h4>
+                  <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
+                  <div id="contact">
+                    <%= render "contacts/contact_form" %>
+                  </div>
+                  <div id="flash-message">
+                    <%= render 'contacts/flash' %>
+                  </div>
+                </div>
+              </body>
+              </html>
