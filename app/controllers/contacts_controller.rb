@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
     skip_before_action :require_login
 
-    def index
-      @contact = Contact.new(params[:contact])
+  def index
+    @contact = Contact.new(params[:contact])
   end
 
   def create
