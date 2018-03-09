@@ -1,26 +1,31 @@
 class ContactsController < ApplicationController
     skip_before_action :require_login
 
-	def new
-		@contact = Contact.new
-	end
+    def index
+      @contact = Contact.new(params[:contact])
+  end
 
-	def create
-		@contact = Contact.new(contact_params)
-        @contact.request = request
+  def create
+      @contact = Contact.new(params[:contact])
+      @contact.request = request
 
+      respond_to do |f|
         if @contact.deliver
+            @contact = Contact.new
 
-        	redirect_to root_path,  notice: 'Messagage received, we will respond to you within 1-business day'
+            f.html { render 'index' }
+            f.js { flash.now[:success] = @message = "Thank you for your message, we'll get back to you within 1 business day" }
         else 
-        	render 'new'
-        end 	
-	end
+        	f.html { render 'index' }
+            f.js { flash.now[:error] = @message = "Cannot send message at this time." }
+        end 
+    end	
+end
 
-    private
+private
 
-    def contact_params
-        params.require(:contact).permit(:name, :email, :message, :nickname)
-    end   
+def contact_params
+    params.require(:contact).permit(:name, :email, :message, :nickname)
+end   
 
 end

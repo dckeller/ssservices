@@ -118,6 +118,7 @@
 
              <div class="sessions-time-slots">
                <h1>Request Service</h1>
+               <h4>What time works best for you?</h4>
                <div class="table-scroll">
                <table class="table table-hover">
                 <% if @slots.blank? %>
@@ -126,19 +127,19 @@
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col"></th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
+                    <th scope="col"><h4>Location</h4></th>
+                    <th scope="col"><h4>Date</h4></th>
+                    <th scope="col"><h4>Time</h4></th>
                     <th scope="col"></th>
                   </tr>
                   </thead>    
                   <% @slots.each do |time_slot| %>
                   <tbody>
                   <tr>
-                    <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "100", class: "image-logo") %></td>
-                    <td><%= time_slot.city %></td>
-                    <td><%= time_slot.date.try(:strftime, "%a, %D") %></td>
-                    <td><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></td>
+                    <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
+                    <td><h4><%= time_slot.city %></h4></td>
+                    <td><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
+                    <td><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
                     <td><%= link_to 'Pick This Time', profile_path(User.find(time_slot.slot_creator_id)) %></td>
                   
                   <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
@@ -153,8 +154,9 @@
             </div>
             <div class="contact-form">
               <h1 id="profile-contact">Contact Us</h1>
+              <h4>Need an inspector outside the Salt Lake Area?</h4>
               <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
-              <div class="contact">
+              <div id="contact">
                 <%= render "contacts/contact_form" %>
               </div>
             </div>

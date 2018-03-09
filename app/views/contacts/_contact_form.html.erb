@@ -7,5 +7,8 @@
 
   <%= f.hidden_field :nickname, hint: 'leave this field blank' %>
 
-  <%= f.submit 'Send Message', type: "button", class: 'btn btn-default btn-lg' %>
+  <%= f.submit 'Send Message', class: 'btn btn-default btn-lg' %>
 <% end %><br>
+<div id="flash-message">
+  <%= render 'contacts/flash' %>
+</div>
