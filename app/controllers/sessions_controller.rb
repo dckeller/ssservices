@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
 	
 	def index
 		@slots = Slot.all.order("created_at DESC")
-		@contact = Contact.new
 		@chat = Chat.new
+		@contact = Contact.new(params[:contact])
 	end
-	 
-end
+	  
+end 

@@ -6,26 +6,25 @@ class ContactsController < ApplicationController
   end
 
   def create
-      @contact = Contact.new(params[:contact])
-      @contact.request = request
+    @contact = Contact.new(params[:contact])
+    @contact.request = request
 
-      respond_to do |f|
-        if @contact.deliver
-            @contact = Contact.new
+    respond_to do |f|
+      if @contact.deliver
+          @contact = Contact.new
 
-          f.html { redirect_to root_path(:anchor => "profile-contact") }
-          f.js { flash.now[:success] = @message = "Thank you for your message, we'll get back to you within 1 business day" }
-        else 
-        	f.html { redirect_to root_path(:anchor => "profile-contact") }
-          f.js { flash.now[:error] = @message = "Cannot send message at this time." }
-        end 
+        f.html { render 'sessions/index' }
+        f.js { flash.now[:success] = @message = "Thank you for your message, we'll get back to you within 1 business day" }
+      else 
+      	f.html { render 'sessions/index' }
+        f.js { flash.now[:error] = @message = "Cannot send message at this time." }
+      end 
     end	
-end
+  end
 
 private
 
-def contact_params
+  def contact_params
     params.require(:contact).permit(:name, :email, :message, :nickname)
-end   
-
+  end   
 end

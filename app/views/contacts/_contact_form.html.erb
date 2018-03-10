@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @contact, class: 'contact_form' do |f| %>
+<%= bootstrap_form_for @contact, class: 'contact_form', remote: true do |f| %>
   <%= f.text_field :name, required: true, placeholder: "Tell me your name", class: 'contact_text' %>
 
   <%= f.email_field :email, required: true, placeholder: "Tell me your email" %>
@@ -9,3 +9,6 @@
 
   <%= f.submit 'Send Message', class: 'btn btn-default btn-lg' %>
 <% end %><br>
+<div id="flash-message">
+  <%= render 'contacts/flash' %>
+</div>

@@ -14,19 +14,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6">
-				<div class="card">
+				<div class="card embed-responsive embed-responsive-4by3"">
 					<iframe width="500" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Salt Lake City County&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 				</div>
 			</div>
 			<div class="col-xs-6">
-				<div class="card">
+				<div class="card text-center">
 					<h4 class="card-header">Structural Support Services</h4>
 					<h4 class="card-title">Serving the Greater Salt Lake City Area</h4>
 					<div class="card-body">
-						<p class="card-text">By Phone: (435) 277-0637</p>
-						<a> <%= link_to "Email Us", root_path(:anchor => "profile-contact"), class: "btn btn-default" %></a><br>
-						<ul class="list-group">
-							<li class="list-group-item active">Inspection Services We Provide:</li>
+						<p class="card-text"><h5>Phone: (435) 277-0637</h5></p>
+						<p class="card-text"><h5>Email: <%= mail_to "Eli@StructuralInspectionConnection.com" %></h5></p>
+						<ul class="list-group"><br>
+							<li><h4 class="service-header">Inspection Services We Provide:</h4></li>
 							<li class="list-group-item">International Code Council (ICC)</li>
 							<li class="list-group-item">American Welding Society (AWS)</li>
 							<li class="list-group-item">American Society of Non-Destructive Testing (ASNT)</li>

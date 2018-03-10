@@ -39,6 +39,22 @@
   text-align: center;
 }
 
+.card {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.service-header {
+  background-color: orange;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  margin: 0px;
+}
+
+li.list-group-item {
+  background: rgba(255, 255, 255, 0);
+}
+
 #photos {
   /* Prevent vertical gaps */
   line-height: 0;
@@ -49,6 +65,13 @@
   -moz-column-gap:      0px;
   column-count:         5;
   column-gap:           0px;  
+}
+
+.container {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
 }
 
 #photos img {
