@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, body {
+  height: 100%;
+}
+
+.carousel,.item,.active {
+  height:100%;
+}
+
+.carousel-inner {
+  height:100%;
+}
 
 .icons {
   text-align: center;
@@ -26,7 +37,6 @@
 .card-group {
   display: flex;
 }
-
 
 .card-1 {
   margin: 10px;
@@ -68,4 +78,17 @@
 .table-scroll {
   overflow-y: auto;
   height: 400px;
+}
+
+.container {
+  display: inline;
+}
+
+.row {
+  display: flex;
+}
+
+.call-image {
+  border-radius: 50%;
+  border: 2px solid orange;
 }

@@ -18,10 +18,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.carousel-inner > .item > img {
-	height: 100%;
-}
-
 @media (max-width: 992px) {
     .navbar-header {
         float: none;

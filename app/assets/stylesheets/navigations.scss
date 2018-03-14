@@ -16,19 +16,30 @@ a.navbar-brand {
 	color: black;
 }
 
-form#search-form.navbar-form.navbar-left {
-	padding: 0;
-}
-
 button.navbar-toggle {
 	border: 1px solid black;
 }
 
 #navbar-collector {
-	margin-top: 35px;
-	margin-left: 5px;
+	margin-top: 41px;
 }
+
+#navbar-collector a:hover {
+		background: rgba(255, 255, 255, 0);
+		color: orange;
+	}
 
 .navbar-toggle .icon-bar {
    background-color: black;
+}
+
+@media (max-width: 992px) {
+	#navbar-collector a {
+		background: rgba(255, 255, 255, 0.6);
+		width: 50%;
+	}
+
+	#navbar-collector a:hover {
+		color: orange;
+	}
 }
