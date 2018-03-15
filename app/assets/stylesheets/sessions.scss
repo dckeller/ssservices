@@ -6,12 +6,13 @@ html, body {
   height: 100%;
 }
 
-.carousel,.item,.active {
-  height:100%;
+.carousel-inner {
+  height: 100%;
 }
 
-.carousel-inner {
-  height:100%;
+.carousel-caption {
+    top: 80px;
+    bottom: auto;
 }
 
 .icons {
@@ -65,30 +66,14 @@ html, body {
   color: white;
 }
 
+.sessions-time-slots {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 40px;
+}
+
 .contact-form {
   margin-left: 100px;
   margin-right: 100px;
 }
 
-.sessions-time-slots {
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
-.table-scroll {
-  overflow-y: auto;
-  height: 400px;
-}
-
-.container {
-  display: inline;
-}
-
-.row {
-  display: flex;
-}
-
-.call-image {
-  border-radius: 50%;
-  border: 2px solid orange;
-}

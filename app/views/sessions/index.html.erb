@@ -19,145 +19,142 @@
     <div class="carousel-inner">
      <div class="item active">
       <%= image_tag("car1.jpg",
-      alt: "image") %>
-      <div class="carousel-caption">
-        <h1>We Service Anytime, Anywhere</h1>
+        alt: "Responsive image",
+        class: "img-responsive") %>
+        <div class="carousel-caption">
+          <h1>We Service Anytime, Anywhere</h1>
+        </div>
       </div>
-    </div>
 
-    <div class="item">
-      <%= image_tag("car2.jpg",
-      alt: "image") %>
-      <div class="carousel-caption">
-        <h1>We Hold 13 Servicing Certifications</h1>
-      </div>
-    </div>
-
-    <div class="item">
-      <%= image_tag("car3.jpeg",
-      alt: "image") %>
-      <div class="carousel-caption">
-        <h1>Rain, Snow, or Shine</h1>
-      </div>
-    </div>
-
-    <div class="item">
-      <%= image_tag("car4.jpg",
-      alt: "image") %>
-      <div class="carousel-caption">
-        <h1>Large or Small Inspections, We Can Help</h1>
-      </div>
-    </div>
-
-  </div> <!-- end inner carosol -->
-
-  <!-- Begin and Previous Buttons -->
-  <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev">
-   <span class="glyphicon glyphicon-chevron-left"></span></a> 
-
-   <a class="right carousel-control" href="#myGallery" role="button" data-slide="next">
-     <span class="glyphicon glyphicon-chevron-right"></span>
-   </a>
- </div> <!-- end myGallery -->
-
- <div class="icons">
-  <div class="icons-text">  
-    <h1>We Are Your</h1>
-  </div>
-  <div class="card-deck-wrapper"> 
-    <div class="card-group">
-     <div class="card card-1">
-       <div class="card-block">
-        <h2 class="card-title">Special</h2>
-        <%= image_tag("special.png",
-         alt: "Card image cap",
-         class: "card-img-top",
-           size: "250") %>
-           <h2 class="card-title", style="color:orange;">1.) Find A Time</h2>
-         </div>
-       </div>
-       <div class="card card-1">
-         <div class="card-block">
-           <h2 class="card-title">Inspection</h2>
-           <%= image_tag("inspection.png",
-             alt: "Card image cap",
-             class: "card-img-top",
-               size: "250") %>
-               <h2 class="card-title", style="color:orange;">2.) Pick A Service</h2>
-             </div>
-           </div>
-           <div class="card card-1">
-             <div class="card-block">
-               <h2 class="card-title">Connection</h2>
-               <%= image_tag("connection.png",
-                 alt: "Card image cap",
-                 class: "card-img-top",
-                   size: '250') %>
-                   <h2 class="card-title", style="color:orange;">3.) Send A Request</h2>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <div class="info">
-        <div class="info-text">
-         <h1>Let Us Help You</h1>
-         <div id="sessions-time-slots"></div>
-         <h3>Do you need a last minutes inspection, or had another inspector cancell on you?  We can help.  Your time is important to us, andwe are quick to respond.  Simply select a time below that works for you, select an inspectin type and what city the job is located it and somebody will contect you shortly to ocnfirm details on the job..... it's that simple!</h3><br>
-       </div>
-     </div>
-
-     <div class="sessions-time-slots">
-       <h1>Request Service</h1>
-       <h4>What time works best for you?</h4>
-       <div class="table-scroll">
-         <table class="table table-hover">
-          <% if @slots.blank? %>
-          <h4>There are no time slots currently</h4> 
-          <% else %>
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col"></th>
-              <th scope="col"><h4>Date</h4></th>
-              <th scope="col"><h4>Time</h4></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>    
-          <% @slots.each do |time_slot| %>
-          <tbody>
-            <tr>
-              <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
-              <td class="align-middle"><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
-                <td class="align-middle"><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
-                <td class="align-middle"><%= link_to 'Pick This Time', profile_path(User.find(time_slot.slot_creator_id)) %></td>
-
-                <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
-                <% @slot = time_slot %>
-                <!-- <td><%#= render "chats/new_chat_form" %></td> -->
-                <% end %>  
-              </tr>
-              <% end %>
-              <% end %>
-            </table>
+      <div class="item">
+        <%= image_tag("car2.jpg",
+          alt: "Responsive image",
+          class: "img-responsive") %>
+          <div class="carousel-caption">
+            <h1>We Hold 13 Servicing Certifications</h1>
           </div>
         </div>
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <%= image_tag("call.jpg", class: "call-image") %>
-            </div>
-            <div class="col">
-              <div class="contact-form">
-                <h1 id="profile-contact">Contact Us</h1>
-                <h4>We would love to hear from you, give us a call or send us an email and we'll get back to you shortly</h4>
-                <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
-                <div id="contact">
-                  <%= render "contacts/contact_form" %>
-                </div>
-              </div>
+
+        <div class="item">
+          <%= image_tag("car3.jpeg",
+            alt: "Responsive image",
+            class: "img-responsive") %>
+            <div class="carousel-caption">
+              <h1>Rain, Snow, or Shine</h1>
             </div>
           </div>
-        </body>
-        </html>
+
+          <div class="item">
+            <%= image_tag("car4.jpg",
+              alt: "Responsive image",
+              class: "img-responsive") %>
+              <div class="carousel-caption">
+                <h1>Large or Small Inspections, We Can Help</h1>
+              </div>
+            </div>
+
+          </div> <!-- end inner carosol -->
+
+          <!-- Begin and Previous Buttons -->
+          <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev">
+           <span class="glyphicon glyphicon-chevron-left"></span></a> 
+
+           <a class="right carousel-control" href="#myGallery" role="button" data-slide="next">
+             <span class="glyphicon glyphicon-chevron-right"></span>
+           </a>
+         </div> <!-- end myGallery -->
+
+         <div class="icons">
+          <div class="icons-text">  
+            <h1>We Are Your</h1>
+          </div>
+          <div class="card-deck-wrapper"> 
+            <div class="card-group">
+             <div class="card card-1">
+               <div class="card-block">
+                <h2 class="card-title">Special</h2>
+                <%= image_tag("special.png",
+                 alt: "Card image cap",
+                 class: "card-img-top",
+                   size: "250") %>
+                   <h2 class="card-title", style="color:orange;">1.) Find A Time</h2>
+                 </div>
+               </div>
+               <div class="card card-1">
+                 <div class="card-block">
+                   <h2 class="card-title">Inspection</h2>
+                   <%= image_tag("inspection.png",
+                     alt: "Card image cap",
+                     class: "card-img-top",
+                       size: "250") %>
+                       <h2 class="card-title", style="color:orange;">2.) Pick A Service</h2>
+                     </div>
+                   </div>
+                   <div class="card card-1">
+                     <div class="card-block">
+                       <h2 class="card-title">Connection</h2>
+                       <%= image_tag("connection.png",
+                         alt: "Card image cap",
+                         class: "card-img-top",
+                           size: '250') %>
+                           <h2 class="card-title", style="color:orange;">3.) Send A Request</h2>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+               <div class="info">
+                <div class="info-text">
+                 <h1>Let Us Help You</h1>
+                 <div id="sessions-time-slots"></div>
+                 <h3>Do you need a last minutes inspection, or had another inspector cancell on you?  We can help.  Your time is important to us, andwe are quick to respond.  Simply select a time below that works for you, select an inspectin type and what city the job is located it and somebody will contect you shortly to ocnfirm details on the job..... it's that simple!</h3><br>
+               </div>
+             </div>
+
+             <div class="sessions-time-slots">
+               <h1>Request Service</h1>
+               <h4>What time works best for you?</h4>
+               <div class="table-scroll">
+                 <table class="table table-hover">
+                  <% if @slots.blank? %>
+                  <h4>There are no time slots currently</h4> 
+                  <% else %>
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"><h4>Date</h4></th>
+                      <th scope="col"><h4>Time</h4></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>    
+                  <% @slots.each do |time_slot| %>
+                  <tbody>
+                    <tr>
+                      <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
+                      <td class="align-middle"><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
+                        <td class="align-middle"><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
+                        <td class="align-middle"><%= link_to 'Pick This Time', profile_path(User.find(time_slot.slot_creator_id)) %></td>
+
+                        <% if user_signed_in? && current_user.id != time_slot.slot_creator_id %>
+                        <% @slot = time_slot %>
+                        <!-- <td><%#= render "chats/new_chat_form" %></td> -->
+                        <% end %>  
+                      </tr>
+                      <% end %>
+                      <% end %>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="contact-form">
+                  <h1 id="profile-contact">Contact Us</h1>
+                  <h4>We would love to hear from you, give us a call or send us an email and we'll get back to you shortly</h4>
+                  <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
+                  <div id="contact">
+                    <%= render "contacts/contact_form" %>
+                  </div>
+                </div>
+              </body>
+              </html>
