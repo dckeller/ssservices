@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 		@slots = Slot.all.order("created_at DESC")
 		@chat = Chat.new
 		@contact = Contact.new(params[:contact])
+		@request = Request.new(params[:request])
 	end
 	  
 end 
