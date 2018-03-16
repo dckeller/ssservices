@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @request, class: 'request_form', method: :post, url: slot_requests_path(@slot) remote: :true do |f| %>
+<%= bootstrap_form_for @request, class: 'request_form', method: :post, url: slot_requests_path(@slot) do |f| %>
 
   <%= f.hidden_field :message, value: "Request Date: " + @slot.date.try(:strftime, "%a, %D") + "Time: " + @slot.start_time.try(:strftime, "%-l:%M%P") + "-" + @slot.end_time.try(:strftime, "%-l:%M%P") %>
 

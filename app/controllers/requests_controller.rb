@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
   skip_before_action :require_login
 
-  def new
+  def index
     @request = Request.new(params[:request])
   end
 
@@ -24,6 +24,7 @@ class RequestsController < ApplicationController
         f.html { render 'sessions/index' }
         f.js { flash.now[:error] = @message = "Cannot send message at this time." }
       end
+    end 
   end
 
 private
