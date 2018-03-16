@@ -26,6 +26,6 @@ private
 
   def request_params
     params.require(:request).permit(:name, :email, :message, :nickname, :telephone, :type)
-  end   
-end
+  end
+     
 end

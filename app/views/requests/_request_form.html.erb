@@ -1,5 +1,6 @@
-<%= bootstrap_form_for @request, class: 'contact_form', remote: :true do |f| %>
-  <%= f.text_field :name, required: true, placeholder: "Tell me your name", class: 'contact_text' %>
+<%= bootstrap_form_for @request, class: 'request_form', remote: :true do |f| %>
+
+  <%= f.text_field :name, required: true, placeholder: "Tell me your name" %>
 
   <%= f.email_field :email, required: true, placeholder: "Tell me your email" %>
 

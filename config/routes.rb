@@ -16,6 +16,6 @@ resources :profiles
 
 resources :contacts, only: [:index, :new, :create]
 
-resources :rquests, only: [:index, :new, :create]
+resources :requests, only: [:index, :new, :create]
 
 end
