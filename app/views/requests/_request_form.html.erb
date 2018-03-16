@@ -1,14 +1,17 @@
-<%= bootstrap_form_for @request, class: 'request_form', remote: :true do |f| %>
+<%= bootstrap_form_for @request, class: 'request_form', method: :post, url: slot_requests_path(@slot) do |f| %>
 
-  <%= f.text_field :name, required: true, placeholder: "Tell me your name" %>
+  <%= f.hidden_field :message, value: "Request Date: " + @slot.date.try(:strftime, "%a, %D") + "Time: " + @slot.start_time.try(:strftime, "%-l:%M%P") + "-" + @slot.end_time.try(:strftime, "%-l:%M%P") %>
 
-  <%= f.email_field :email, required: true, placeholder: "Tell me your email" %>
+  <%= f.text_field :name, required: true, placeholder: "Tell us your name" %>
+
+  <%= f.email_field :email, required: true, placeholder: "Tell us your email" %>
+
+  <%= f.text_field :telephone, required: true, placeholder: "Tell us the best number to reach you" %>
 
   <%= f.select :type, options_for_select(request_options), required: true  %>
 
-  <%= f.text_area :message, as: :text, placeholder: "Tell me a little about the project" %>
-
   <%= f.hidden_field :nickname, hint: 'leave this field blank' %>
+
 
   <%= f.submit 'Send Request', class: 'btn btn-default btn-lg' %>
 <% end %><br>
