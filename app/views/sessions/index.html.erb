@@ -139,60 +139,60 @@
                         <!-- Button trigger modal -->
                         <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_request_form">
                           Pick This Time
-                          </button></td>
-                         <td> 
-                      </tr>
-                      <div class="modal fade" id="modal_request_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">New Request Form</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <%= bootstrap_form_for @request, class: 'request_form', method: :post, url: slot_requests_path(time_slot) do |f| %>
-                            <%= f.hidden_field :message, value: "Request Date: " + time_slot.date.try(:strftime, "%a, %D") + "Time: " + time_slot.start_time.try(:strftime, "%-l:%M%P") + "-" + time_slot.end_time.try(:strftime, "%-l:%M%P") %>
+                        </button></td>
+                        <td> 
+                        </tr>
+                        <div class="modal fade" id="modal_request_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">New Request Form</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <%= bootstrap_form_for @request, class: 'request_form', method: :post, url: slot_requests_path(time_slot) do |f| %>
+                                <%= f.hidden_field :message, value: "Request Date: " + time_slot.date.try(:strftime, "%a, %D") + "Time: " + time_slot.start_time.try(:strftime, "%-l:%M%P") + "-" + time_slot.end_time.try(:strftime, "%-l:%M%P") %>
 
-                            <%= f.text_field :name, required: true, placeholder: "Tell us your name" %>
+                                <%= f.text_field :name, required: true, placeholder: "Tell us your name" %>
 
-                            <%= f.email_field :email, required: true, placeholder: "Tell us your email" %>
+                                <%= f.email_field :email, required: true, placeholder: "Tell us your email" %>
 
-                            <%= f.text_field :telephone, required: true, placeholder: "Tell us the best number to reach you" %>
+                                <%= f.text_field :telephone, required: true, placeholder: "Tell us the best number to reach you" %>
 
-                            <%= f.select :type, options_for_select(request_options), required: true  %>
+                                <%= f.select :type, options_for_select(request_options), required: true  %>
 
-                            <%= f.hidden_field :nickname, hint: 'leave this field blank' %>
+                                <%= f.hidden_field :nickname, hint: 'leave this field blank' %>
 
 
-                            <%= f.submit 'Send Request', class: 'btn btn-default btn-lg' %>
-                          <% end %><br>
-                          <div id="flash-message">
-                            <%= render 'requests/flash' %>
-                          </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <%= f.submit 'Send Request', class: 'btn btn-default btn-lg' %>
+                                <% end %><br>
+                                <div id="flash-message">
+                                  <%= render 'requests/flash' %>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        
+                        <% end %>
+                        <% end %>
+                      </table>
                     </div>
-                      
-                      <% end %>
-                      <% end %>
-                    </table>
                   </div>
-                </div>
 
-                <div class="contact-form">
-                  <h1 id="profile-contact">Contact Us</h1>
-                  <h4>We would love to hear from you, give us a call or send us an email and we'll get back to you shortly</h4>
-                  <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
-                  <div id="contact">
-                    <%= render "contacts/contact_form" %>
+                  <div class="contact-form">
+                    <h1 id="profile-contact">Contact Us</h1>
+                    <h4>We would love to hear from you, give us a call or send us an email and we'll get back to you shortly</h4>
+                    <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
+                    <div id="contact">
+                      <%= render "contacts/contact_form" %>
+                    </div>
                   </div>
-                </div>
 
-              </body>
-              </html>
+                </body>
+                </html>

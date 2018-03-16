@@ -2,22 +2,28 @@ class RequestsController < ApplicationController
   skip_before_action :require_login
 
   def new
+    @request = Request.new(params[:request])
+  end
+
+  def new
     @request = Request.new
     @slot = Slot.find(params[:slot_id])
-  end
+  end 
 
   def create
     @request = Request.new(params[:request])
     @request.request = request
 
-    if @request.deliver
-      flash.now[:notice] = 'Thank you for your message. We will get back to you soon!'
-    
-      redirect_to root_path
-    else
-      flash.now[:error] = 'Cannot send message.'
-      render :new
-    end
+    respond_to do |f|
+      if @request.deliver
+        @request = Request.new
+          
+        f.html { render 'sessions/index' }
+        f.js { flash.now[:success] = @message = "Thank you for your message, we'll get back to you within 1 business day" }   
+      else
+        f.html { render 'sessions/index' }
+        f.js { flash.now[:error] = @message = "Cannot send message at this time." }
+      end
   end
 
 private
