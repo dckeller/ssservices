@@ -153,6 +153,7 @@
                               </div>
                               <div class="modal-body">
                                 <%= bootstrap_form_for @request, class: 'request_form', method: :post, url: slot_requests_path(time_slot) do |f| %>
+
                                 <%= f.hidden_field :message, value: "Request Date: " + time_slot.date.try(:strftime, "%a, %D") + "Time: " + time_slot.start_time.try(:strftime, "%-l:%M%P") + "-" + time_slot.end_time.try(:strftime, "%-l:%M%P") %>
 
                                 <%= f.text_field :name, required: true, placeholder: "Tell us your name" %>
@@ -182,15 +183,6 @@
                         <% end %>
                         <% end %>
                       </table>
-                    </div>
-                  </div>
-
-                  <div class="contact-form">
-                    <h1 id="profile-contact">Contact Us</h1>
-                    <h4>We would love to hear from you, give us a call or send us an email and we'll get back to you shortly</h4>
-                    <button type="button" class="btn btn-warning btn-lg">By Phone: (435) 277-0637</button>
-                    <div id="contact">
-                      <%= render "contacts/contact_form" %>
                     </div>
                   </div>
 

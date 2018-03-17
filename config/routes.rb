@@ -14,5 +14,6 @@ resources :profiles
 
 resources :contacts, only: [:index, :new, :create]
 
+resources :images, only: [:index]
 
 end

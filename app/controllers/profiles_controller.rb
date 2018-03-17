@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
 	## This is the profile page for SSServices ##
 	def index
+		@contact = Contact.new(params[:contact])
 	end
 
 	## Profile pages for everyone else ##

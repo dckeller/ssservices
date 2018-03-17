@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Work Hard | Play Hard</title>
+	<title>Work Hard | Play Hard</title>
 </head>
 <body>
 	<div class="header-space">
@@ -9,13 +9,13 @@
 			<h3>Our Mission:</h3>
 			<h4>Structural Support Services (SS Services) wants to provide services to Structural Engineer of Record, Project Owner, Contractors, Jurisdiction and Approved Agency’s for maintaining the the required structural inspection requirements on their project of any size. Due to the high demand for certified and experienced personnel in our market today, our goal is to make ourselves more easily available for short notice, last minute or overlooked inspections. By being Independent Inspectors, we are not bound by only being allowed to work for certain clients. Hopefully allowing our client to stay productive and constructive.</h4>
 			<h5>C.E.O. -Eli Lambson</h5>
-			</div>
+		</div>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6">
 				<div class="card map embed-responsive embed-responsive-4by3"">
-					<iframe width="500" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Salt Lake City County&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+					<iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Salt Lake City County&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 				</div>
 			</div>
 			<div class="col-xs-6">
@@ -23,37 +23,28 @@
 					<h3 class="card-header">Structural Support Services</h3>
 					<h3 class="card-title">Serving the Greater Salt Lake City Area</h3>
 					<div class="card-body">
-						<p class="card-text"><h4>Phone: (435) 277-0637</h4></p>
-						<p class="card-text"><h4>Email: <%= mail_to "Eli@StructuralInspectionConnection.com" %></h4></p>
-						<ul class="list-group"><br>
-							<li><h4 class="service-header">Inspection Services We Provide:</h4></li>
-							<li class="list-group-item"><h5>International Code Council (ICC)</h5></li>
-							<li class="list-group-item"><h5>American Welding Society (AWS)</h5></li>
-							<li class="list-group-item"><h5>American Society of Non-Destructive Testing (ASNT)</h5></li>
-							<li class="list-group-item"><h5>American Concrete Institute (ACI)</h5></li>
-							<li class="list-group-item"><h5>Seismic Hanger & Anchorage</h5></li>
-						</ul>
+						<h4 class="card-text">Phone: (435) 277-0637</h4>
+						<h4 class="card-text">Email: <%= mail_to "Eli@StructuralInspectionConnection.com" %></h4>
+						<h4 class="service-header">Inspection Services We Provide:</h4>
+						<h4 class="card-text">International Code Council (ICC)</h4>
+						<h4 class="card-text">American Welding Society (AWS)</h4>
+						<h4 class="card-text">American Society of Non-Destructive Testing (ASNT)</h4>
+						<h4 class="card-text">American Concrete Institute (ACI)</h4>
+						<h4 class="card-text">Seismic Hanger & Anchorage</h4>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-  <section id="photos">
-  	<%= image_tag("profile1.jpg") %>
-  	<%= image_tag("profile2.jpg") %>
-  	<%= image_tag("profile3.jpg") %>
-  	<%= image_tag("profile4.jpg") %>
-  	<%= image_tag("profile6.jpg") %>
-  	<%= image_tag("profile7.jpg") %>
-  	<%= image_tag("profile8.jpg") %>
-  	<%= image_tag("profile11.jpg") %>
-  	<%= image_tag("profile12.jpg") %>
-  	<%= image_tag("profile13.jpg") %>
-  	<%= image_tag("profile14.jpg") %>
-  	<%= image_tag("profile15.jpg") %>
-  	<%= image_tag("profile16.jpg") %>
-  	<%= image_tag("profile17.jpg") %>
-  	<%= image_tag("profile19.jpg") %>
-  </section>
+<div class="contact-wrapper">
+	<div class="contact-form">
+		<h1 id="profile-contact">Contact Us</h1>
+		<h4>We would love to hear from you, give us a call or send us an email and we'll get back to you shortly</h4>
+		<div class="phone"><h3>By Phone: (435) 277-0637</h3></div>
+		<div id="contact">
+			<%= render "contacts/contact_form" %>
+		</div>
+	</div>
+</div>
 </body>
 </html>
