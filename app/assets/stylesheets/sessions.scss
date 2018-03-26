@@ -28,7 +28,7 @@ html, body {
 
 .icons-text h1 {
   /* background: rgba(255, 255, 255, 0.8); */
-  color: orange;
+  color: #cc8500;
 }
 
 .card-deck-wrapper {
@@ -53,11 +53,11 @@ html, body {
 }
 
 .info {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 150px;
   padding-right: 150px;
-  background: orange;
+  background: #cc8500;
   text-align: center;
 }
 
@@ -66,7 +66,7 @@ html, body {
   color: white;
 }
 
-.sessions-time-slots {
+#sessions-time-slots {
   margin-left: 100px;
   margin-right: 100px;
   margin-bottom: 40px;
@@ -75,5 +75,10 @@ html, body {
 .request-form {
   margin-left: 100px;
   margin-right: 100px;
+}
+
+.modal-header {
+  background: #cc8500;
+  color: white;
 }
 

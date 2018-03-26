@@ -26,7 +26,7 @@ button.navbar-toggle {
 
 #navbar-collector a:hover {
 		background: rgba(255, 255, 255, 0);
-		color: orange;
+		border-top: 3px solid #cc8500;
 	}
 
 .navbar-toggle .icon-bar {
@@ -40,6 +40,6 @@ button.navbar-toggle {
 	}
 
 	#navbar-collector a:hover {
-		color: orange;
+		border-top: 3px solid brown;
 	}
 }

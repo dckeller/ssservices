@@ -11,11 +11,11 @@ class RequestsController < ApplicationController
 
     if @request.deliver
         
-      redirect_to root_path
-      flash.now[:success] = @message = "Thank you for your message, we'll get back to you within 1 business day."   
+      redirect_to root_path(:anchor => "sessions-time-slots")
+      flash[:success] = @message = "Thank you for your message, we'll get back to you as soon as we can."   
     else
       render 'new'
-      flash.now[:error] = @message = "Sorry, your message was unable to send at this time." 
+      flash[:error] = @message = "Sorry, your message was unable to send at this time." 
     end
   end
 

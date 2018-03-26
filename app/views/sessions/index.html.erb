@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  <div id="myGallery" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000" >
+  <div id="myGallery" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000" >
 
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -22,7 +22,7 @@
         alt: "Responsive image",
         class: "img-responsive") %>
         <div class="carousel-caption">
-          <h1>We Service Anytime, Anywhere</h1>
+          <h1>We Help Ensure Structual Integrity</h1>
         </div>
       </div>
 
@@ -31,7 +31,7 @@
           alt: "Responsive image",
           class: "img-responsive") %>
           <div class="carousel-caption">
-            <h1>We Hold 13 Servicing Certifications</h1>
+            <h1>Required Certifications from Soils to Top-Out</h1>
           </div>
         </div>
 
@@ -40,7 +40,7 @@
             alt: "Responsive image",
             class: "img-responsive") %>
             <div class="carousel-caption">
-              <h1>Rain, Snow, or Shine</h1>
+              <h1>New Build & Remodel Construction Services</h1>
             </div>
           </div>
 
@@ -49,7 +49,7 @@
               alt: "Responsive image",
               class: "img-responsive") %>
               <div class="carousel-caption">
-                <h1>Large or Small Inspections, We Can Help</h1>
+                <h1>We Help Support Your Existing QA or QC Team</h1>
               </div>
             </div>
 
@@ -77,7 +77,7 @@
                  alt: "Card image cap",
                  class: "card-img-top",
                    size: "250") %>
-                   <h2 class="card-title", style="color:orange;">1.) Find A Time</h2>
+                   <h2 class="card-title", style="color:#cc8500;">1.) Find A Time</h2>
                  </div>
                </div>
                <div class="card card-1">
@@ -87,7 +87,7 @@
                      alt: "Card image cap",
                      class: "card-img-top",
                        size: "250") %>
-                       <h2 class="card-title", style="color:orange;">2.) Pick A Service</h2>
+                       <h2 class="card-title", style="color:#cc8500;">2.) Pick A Service</h2>
                      </div>
                    </div>
                    <div class="card card-1">
@@ -97,7 +97,7 @@
                          alt: "Card image cap",
                          class: "card-img-top",
                            size: '250') %>
-                           <h2 class="card-title", style="color:orange;">3.) Send A Request</h2>
+                           <h2 class="card-title", style="color:#cc8500;">3.) Send A Request</h2>
                          </div>
                        </div>
                      </div>
@@ -109,13 +109,17 @@
                 <div class="info-text">
                  <h1>Let Us Help You</h1>
                  <div id="sessions-time-slots"></div>
-                 <h3>Do you need a last minutes inspection, or had another inspector cancell on you?  We can help.  Your time is important to us, andwe are quick to respond.  Simply select a time below that works for you, select an inspectin type and what city the job is located it and somebody will contect you shortly to ocnfirm details on the job..... it's that simple!</h3><br>
+                 <h3>Do you need a reliable inspector, or have a short or long term project?  We can help!  
+                  <h3>Your time is important to us, and we are quick to respond.  Simply select a time below that works for you, select an inspection type and what city the job is located and somebody will contect you shortly to confirm details on the job..... it's that simple!</h3><br>
                </div>
              </div>
 
-             <div class="sessions-time-slots">
+             <div id="sessions-time-slots">
                <h1>Request Service</h1>
                <h4>What time works best for you?</h4>
+                <div id="flash-message">
+                  <%= render 'requests/flash' %>
+                </div>
                <div class="table-scroll">
                  <table class="table table-hover">
                   <% if @slots.blank? %>
@@ -124,32 +128,34 @@
                   <thead class="thead-dark">
                     <tr>
                       <th scope="col"></th>
+                      <th scope="col"><h4>Location</h4></th>
                       <th scope="col"><h4>Date</h4></th>
                       <th scope="col"><h4>Time</h4></th>
-                      <th scope="col"></th>
                     </tr>
                   </thead>    
                   <% @slots.each do |time_slot| %>
+                  <% if DateTime.now < time_slot.date && time_slot.date <= DateTime.now + 7%>
                   <tbody>
                     <tr>
                       <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
-                      <td class="align-middle"><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
-                        <td class="align-middle"><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
-                        
+                      <td><h4><%= time_slot.city %><h4></td>
+                      <td><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
+                      <td><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
                         <!-- Button trigger modal -->
-                        <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_request_form">
+                      <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_request_form">
                           Pick This Time
-                        </button></td>
-                        <td> 
-                        </tr>
+                        </button></td> 
+                    </tr>
+                  <% else %>
+                    <% time_slot.delete %>
+                  <% end %>      
                         <div class="modal fade" id="modal_request_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title" id="exampleModalLongTitle">New Request Form</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
+                                <h3 class="modal-title text-center" id="exampleModalLongTitle">Here is the request you selected</h3>
+                                <h4 class="modal-title text-center" id="exampleModalLongTitle"><%= time_slot.date.try(:strftime, "%a, %D") %></h4>
+                                <h4 class="modal-title text-center" id="exampleModalLongTitle"><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4>
                               </div>
                               <div class="modal-body">
                                 <%= bootstrap_form_for @request, class: 'request_form', method: :post, url: slot_requests_path(time_slot) do |f| %>
@@ -169,9 +175,6 @@
 
                                 <%= f.submit 'Send Request', class: 'btn btn-default btn-lg' %>
                                 <% end %><br>
-                                <div id="flash-message">
-                                  <%= render 'requests/flash' %>
-                                </div>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

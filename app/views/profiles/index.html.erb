@@ -6,9 +6,13 @@
 <body>
 	<div class="header-space">
 		<div class="header-space-text">
-			<h3>Our Mission:</h3>
-			<h4>Structural Support Services (SS Services) wants to provide services to Structural Engineer of Record, Project Owner, Contractors, Jurisdiction and Approved Agency’s for maintaining the the required structural inspection requirements on their project of any size. Due to the high demand for certified and experienced personnel in our market today, our goal is to make ourselves more easily available for short notice, last minute or overlooked inspections. By being Independent Inspectors, we are not bound by only being allowed to work for certain clients. Hopefully allowing our client to stay productive and constructive.</h4>
-			<h5>C.E.O. -Eli Lambson</h5>
+			<h3>Our Mission:</h3> 
+
+			<h4>Structural Support Services provides onsite in-progress construction inspection and testing services.</h4>
+			
+			<h4>Our position is to keep the in demand, ICC, ASNT, AWS certified and experienced inspectors utilizing their experience where needed now.  Our services are meant to provide flexibility to those companies who may be short staffed temporarily but not willing sacrifice structural integrity (or go to a competitor) to cover the job.</h4>
+			<h4></h4>
+			<h5>Owner Operator -Eli Lambson</h5>
 		</div>
 	</div>
 	<div class="container">
@@ -19,18 +23,19 @@
 				</div>
 			</div>
 			<div class="col-xs-6">
-				<div class="card text-center">
-					<h3 class="card-header">Structural Support Services</h3>
-					<h3 class="card-title">Serving the Greater Salt Lake City Area</h3>
+				<div class="card">
+					<h3 class="card-header text-center">Structural Support Services</h3>
+					<h4 class="service-header card-title text-center">Serving the Greater Salt Lake City Area</h4>
 					<div class="card-body">
-						<h4 class="card-text">Phone: (435) 277-0637</h4>
+						<h4 class="card-text">Connect: <%= link_to "Linkedin", "https://www.linkedin.com/in/ss-services-98849273/" %></h4>
+						<h4 class="card-text">Phone: <%= number_to_phone(4352770637, area_code: true) %></h4>
 						<h4 class="card-text">Email: <%= mail_to "Eli@StructuralInspectionConnection.com" %></h4>
-						<h4 class="service-header">Inspection Services We Provide:</h4>
-						<h4 class="card-text">International Code Council (ICC)</h4>
-						<h4 class="card-text">American Welding Society (AWS)</h4>
-						<h4 class="card-text">American Society of Non-Destructive Testing (ASNT)</h4>
-						<h4 class="card-text">American Concrete Institute (ACI)</h4>
-						<h4 class="card-text">Seismic Hanger & Anchorage</h4>
+						<h3 class="service-header text-center">Inspection Services We Provide:</h3>
+						<h4 class="card-text"><%= image_tag("icc.png", size: "100x50")%> International Code Council (ICC)</h4>
+						<h4 class="card-text"><%= image_tag("aws.png", size: "100x50")%> American Welding Society (AWS)</h4>
+						<h4 class="card-text"><%= image_tag("asnt.png", size: "80x40")%> American Society of Non-Destructive Testing (ASNT)</h4>
+						<h4 class="card-text"><%= image_tag("aci.png", size: "100x50")%> American Concrete Institute (ACI)</h4>
+						<h4 class="card-text"><%= image_tag("gssi.png", size: "100x50")%> Seismic Hanger & Anchorage</h4>
 					</div>
 				</div>
 			</div>
