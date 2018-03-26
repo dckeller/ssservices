@@ -7,3 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+0.upto(40) do |x|
+	week = 0 
+
+	Slot.create(date: DateTime.now + (week + x), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	Slot.create(date: DateTime.now + (week + 1), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	Slot.create(date: DateTime.now + (week + 2), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	Slot.create(date: DateTime.now + (week + 3), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	Slot.create(date: DateTime.now + (week + 4), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	Slot.create(date: DateTime.now + (week + 5), city: "Greater Salt Lake City", start_time: "06:00:00", end_time: "18:00:00", slot_creator_id: 1)
+	Slot.create(date: DateTime.now + (week + 6), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+
+	week += 7
+end 

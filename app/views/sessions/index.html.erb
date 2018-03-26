@@ -70,7 +70,7 @@
           </div>
           <div class="card-deck-wrapper"> 
             <div class="card-group">
-             <div class="card card-1 card1">
+             <div class="card card-1">
                <div class="card-block">
                 <h2 class="card-title">Special</h2>
                 <%= image_tag("special.png",
@@ -80,7 +80,7 @@
                    <h2 class="card-title", style="color:#cc8500;">1.) Find A Time</h2>
                  </div>
                </div>
-               <div class="card card-1 card2">
+               <div class="card card-1">
                  <div class="card-block">
                    <h2 class="card-title">Inspection</h2>
                    <%= image_tag("inspection.png",
@@ -90,7 +90,7 @@
                        <h2 class="card-title", style="color:#cc8500;">2.) Pick A Service</h2>
                      </div>
                    </div>
-                   <div class="card card-1 card2">
+                   <div class="card card-1">
                      <div class="card-block">
                        <h2 class="card-title">Connection</h2>
                        <%= image_tag("connection.png",
@@ -137,7 +137,7 @@
                   <% if DateTime.now < time_slot.date && time_slot.date <= DateTime.now + 7%>
                   <tbody>
                     <tr>
-                      <td><%= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
+                      <td><%#= image_tag(User.find(time_slot.slot_creator_id).avatar, size: "75", class: "image-logo") %></td>
                       <td><h4><%= time_slot.city %><h4></td>
                       <td><h4><%= time_slot.date.try(:strftime, "%a, %D") %><h4></td>
                       <td><h4><%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4></td>
