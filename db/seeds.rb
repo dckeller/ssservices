@@ -6,17 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+i = 0
+num = 280
 
-0.upto(40) do |x|
-	week = 0 
+while i < num do 
 
-	Slot.create(date: DateTime.now + (week + x), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
-	Slot.create(date: DateTime.now + (week + 1), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
-	Slot.create(date: DateTime.now + (week + 2), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
-	Slot.create(date: DateTime.now + (week + 3), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
-	Slot.create(date: DateTime.now + (week + 4), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
-	Slot.create(date: DateTime.now + (week + 5), city: "Greater Salt Lake City", start_time: "06:00:00", end_time: "18:00:00", slot_creator_id: 1)
-	Slot.create(date: DateTime.now + (week + 6), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	# Thursdays
+	puts Slot.create(date: DateTime.now + i, city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	
+	# Friday's
+	puts Slot.create(date: DateTime.now + (i + 1), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	
+	# Saturday's
+	puts Slot.create(date: DateTime.now + (i + 2), city: "Greater Salt Lake City", start_time: "06:00:00", end_time: "18:00:00", slot_creator_id: 1)
 
-	week += 7
+	# Sunday's
+	puts Slot.create(date: DateTime.now + (i + 3), city: "Greater Salt Lake City", start_time: "08:00:00", end_time: "12:00:00", slot_creator_id: 1)	
+	
+	# Monday's
+	puts Slot.create(date: DateTime.now + (i + 4), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	
+	# Tuesday's
+	puts Slot.create(date: DateTime.now + (i + 5), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+	
+	# Wednesday's
+	puts Slot.create(date: DateTime.now + (i + 6), city: "Greater Salt Lake City", start_time: "17:00:00", end_time: "20:00:00", slot_creator_id: 1)
+
+	i += 7
 end 
+	
