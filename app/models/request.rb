@@ -10,7 +10,7 @@ class Request < MailForm::Base
   def headers
     {
       :subject => "New Service Request",
-      :to => "dckeller1@gmail.com",
+      :to => "eli@structuralinspectionconnection.com",
       :from => %("#{name}" <#{email}>)
     }
   end
