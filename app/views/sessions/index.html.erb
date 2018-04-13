@@ -78,7 +78,7 @@
                  alt: "Card image cap",
                  class: "card-img-top",
                    size: "250") %>
-                   <h2 class="card-title", style="color:#cc8500;">1.) Find A Time</h2>
+                   <h2 class="card-title", style="color:#ffa31a;">1.) Find A Time</h2>
                  </div>
                </div>
                <div class="card card-1">
@@ -88,7 +88,7 @@
                      alt: "Card image cap",
                      class: "card-img-top",
                        size: "250") %>
-                       <h2 class="card-title", style="color:#cc8500;">2.) Pick A Service</h2>
+                       <h2 class="card-title", style="color:#ffa31a;">2.) Pick A Service</h2>
                      </div>
                    </div>
                    <div class="card card-1">
@@ -98,7 +98,7 @@
                          alt: "Card image cap",
                          class: "card-img-top",
                            size: '250') %>
-                           <h2 class="card-title", style="color:#cc8500;">3.) Send A Request</h2>
+                           <h2 class="card-title", style="color:#ffa31a;">3.) Send A Request</h2>
                          </div>
                        </div>
                      </div>
@@ -155,7 +155,7 @@
                             <div class="modal-content">
                               <div class="modal-header">
                                 <div class="modal-title">
-                                  <%= image_tag("logofinal.png", size: "175x50") %>  
+                                  <%= image_tag("logo.png", size: "140x50") %>  
                                 </div>
                                 <h4 class="modal-title text-center" id="exampleModalLongTitle">Request Details:</h4>
                                 <h4 class="modal-title text-center" id="exampleModalLongTitle"><%= time_slot.date.try(:strftime, "%a, %D") %> | <%= time_slot.start_time.try(:strftime, "%-l:%M%P") %> - <%= time_slot.end_time.try(:strftime, "%-l:%M%P") %></h4>
@@ -171,7 +171,7 @@
 
                                 <%= f.text_field :telephone, required: true, placeholder: "Tell us the best number to reach you" %>
 
-                                <%= f.select :type, options_for_select(request_options), required: true  %>
+                                <%= f.select :type, options_for_select(request_options), required: true, class: "custom-select"  %>
 
                                 <%= f.hidden_field :nickname, hint: 'leave this field blank' %>
 

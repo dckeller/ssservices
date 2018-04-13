@@ -13,10 +13,10 @@ class ContactsController < ApplicationController
       if @contact.deliver
           @contact = Contact.new
 
-        f.html { render 'sessions/index' }
+        f.html { render 'profiles/index' }
         f.js { flash.now[:success] = @message = "Thank you for your message, we'll get back to you within 1 business day" }
       else 
-      	f.html { render 'sessions/index' }
+      	f.html { render 'profiles/index' }
         f.js { flash.now[:error] = @message = "Cannot send message at this time." }
       end 
     end	

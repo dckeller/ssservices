@@ -27,7 +27,6 @@ html, body {
 }
 
 .icons-text h1 {
-  /* background: rgba(255, 255, 255, 0.8); */
   color: #ffa31a;
 }
 
@@ -39,16 +38,12 @@ html, body {
   display: flex;
 }
 
-.card-1 {
-  margin: 10px;
-  padding: 10px 10px 10px 10px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
-.card {
+.card.card-1 {
   margin: 0 auto;
   float: none;
   margin-top: 20px;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   margin-bottom: 50px;
 }
 
@@ -62,7 +57,6 @@ html, body {
 }
 
 .info-text {
-  /* background: rgba(255, 255, 255, 0.8); */
   color: white;
 }
 

@@ -3,19 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .edit-user-form {
-    margin-top: 120px;
-    margin-left: 20px;
-    margin-right: 20px;
+  margin-top: 120px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .login-form {
-    margin-top: 120px;
-    margin-left: 20px;
-    margin-right: 20px;
+  margin-top: 120px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .new-user-form {
-    margin-top: 120px;
-    margin-left: 20px;
-    margin-right: 20px;
+  margin-top: 20px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.new-user-intro {
+	margin-top: 100px;
+	text-align: center;
+	color: white;
+	background: #ffa31a;
+	padding: 10px;
+}
+
+.seperator {
+	height: 2px;
+	background: #ffa31a;
+  background-image: linear-gradient(to right black, #ffa31a, black);
 }
